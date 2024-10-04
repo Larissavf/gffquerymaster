@@ -14,7 +14,7 @@ public class LineParser {
 
     /**
      * Parses through the GFF file line by line and extracts information.
-     *
+     * Hehehhe
      * @param filePath The path to the GFF file to be parsed.
      */
     private static final Logger logger = LogManager.getLogger(LineParser.class.getName());
