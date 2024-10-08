@@ -6,9 +6,6 @@ import picocli.CommandLine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
-import java.util.Arrays;
-
 @CommandLine.Command(name = "gff-filter", mixinStandardHelpOptions = true, version = "1.0")
 
 public class ArgsProcessor implements Runnable {
@@ -44,12 +41,18 @@ public class ArgsProcessor implements Runnable {
             logger.warning("GFF file failed the validation check.");
         }
         // if can be gone:)
-        LineParser parser = new LineParser();
+        FileReader parser = new FileReader();
         if (checker.isValidGFFFile(filePath)) {
             parser.parseGFFFile(filePath);
         } else {
             logger.warning("Invalid GFF file. Cannot proceed with parsing.");
         }
+        // implement
+        Filter outputObject = new Filter();
+        outputObject.filter();
+
+        // implement
+        OutputWriter.write(outputObject);
 
 
     }
