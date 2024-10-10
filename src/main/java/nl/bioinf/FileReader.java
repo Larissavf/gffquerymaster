@@ -1,3 +1,12 @@
+/**
+ * This is a JavaDoc comment for a file
+ *
+ * This file contains the main application logic for our program.
+ *
+ * @author Your Name
+ * @version 1.0
+ * @since 2023-02-20
+ */
 package nl.bioinf;
 
 import org.apache.logging.log4j.LogManager;

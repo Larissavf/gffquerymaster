@@ -33,7 +33,7 @@ jar {
     duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
     manifest {
         attributes(
-                'Main-Class': 'nl.bioinf.ArgsProcessor'
+                'Main-Class': 'nl.bioinf.Main'
         )
     }
     from {
