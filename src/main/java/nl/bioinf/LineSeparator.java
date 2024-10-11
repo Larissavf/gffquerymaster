@@ -8,21 +8,26 @@
  */
 package nl.bioinf;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+
 import java.util.HashMap;
 
 public class LineSeparator {
+    private static final Logger logger = LogManager.getLogger(ArgsProcessor.class.getName());
 
 //TODO parent opslaan
 // child opslaan als parent in dict staat
     private String sequenceId;
     private String source;
-    private String dataRegion;
+    private String featureType;
     private int startIndex;
     private int endIndex;
-    private char dot;
+    private char score;
     private char strand;
-    private char dot2;
-    private HashMap<String, String> featureInformation;
+    private char frame;
+    private HashMap<String, String> attributes;
 
     /**
      * It separates the given String array in to the correct variables
@@ -32,17 +37,19 @@ public class LineSeparator {
      */
     public LineSeparator(String[] featureStuff) {
         // set the data to the correct variable
-        this.sequenceId = featureStuff[0];
+        try { this.sequenceId = featureStuff[0];
         this.source = featureStuff[1];
-        this.dataRegion = featureStuff[2];
+        this.featureType = featureStuff[2];
         this.startIndex = Integer.parseInt(featureStuff[3]);
         this.endIndex = Integer.parseInt(featureStuff[4]);
-        this.dot = featureStuff[5].charAt(0);
+        this.score = featureStuff[5].charAt(0);
         this.strand = featureStuff[6].charAt(0);
-        this.dot2 = featureStuff[7].charAt(0);
+        this.frame = featureStuff[7].charAt(0);
         // split the last column for the correct information
         makeFeatureInformation(featureStuff[8]);
-        //todo een error als buiten iets gaat indexen?? of dit doen in de check
+        } catch(ArrayIndexOutOfBoundsException e) {
+            logger.error((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
+        }
     }
 
     /**
@@ -55,9 +62,12 @@ public class LineSeparator {
         // split the String on ; and =
         String[] featureSplit = featureStuff.split("[;=]");
         // put the first item as key and the second as value
-        for (int i = 0; i < featureSplit.length; i+=2) {
-            featureInformation.put(featureSplit[i], featureSplit[i + 1]);
-        }//TODO geef een error als buiten lijst wordt gesneden
+       try{ for (int i = 0; i < featureSplit.length; i+=2) {
+           attributes.put(featureSplit[i], featureSplit[i + 1]);
+       }
+    }catch(ArrayIndexOutOfBoundsException e) {
+           logger.error((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
+       }
     }
 
     public String getSequenceId() {
@@ -69,7 +79,7 @@ public class LineSeparator {
     }
 
     public String getDataRegion() {
-        return dataRegion;
+        return featureType;
     }
 
     public int getStartIndex() {
@@ -81,7 +91,7 @@ public class LineSeparator {
     }
 
     public char getDot() {
-        return dot;
+        return score;
     }
 
     public char getStrand() {
@@ -89,11 +99,11 @@ public class LineSeparator {
     }
 
     public char getDot2() {
-        return dot2;
+        return frame;
     }
 
     public HashMap<String, String> getFeatureInformation() {
-        return featureInformation;
+        return attributes;
     }
 }
 

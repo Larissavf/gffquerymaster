@@ -36,11 +36,13 @@ public class FileReader {
                 // Skip comment lines and headers
                 if (line.startsWith("#")) {
                     continue;
+                    //todo prio1 onthoud voor output
                 }
 
                 // Split the line into columns
                 String[] columns = line.split("\t");
                 LineSeparator separatedRow = new LineSeparator(columns);
+
                 gffFile.add(separatedRow);
             }
         } catch (IOException e) {
