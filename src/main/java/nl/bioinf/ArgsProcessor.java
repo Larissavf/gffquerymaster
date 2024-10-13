@@ -1,7 +1,5 @@
 package nl.bioinf;
 
-// commandline: ... file.gff filterstep
-
 import picocli.CommandLine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,17 +9,17 @@ import org.apache.logging.log4j.Logger;
 public class ArgsProcessor implements Runnable {
     private static final Logger logger = LogManager.getLogger(ArgsProcessor.class.getName());
 
-    @CommandLine.Option(names = {"-i", "--input"}, description = "input file")
+    @CommandLine.Option(names = {"-i", "--input"}, description = "The input file, it needs to be in the version 3 gff format")
     private String inputFile;
 
-    @CommandLine.Option(names = {"-o", "--output"}, description = "output file")
+    @CommandLine.Option(names = {"-o", "--output"}, description = "The location for the output file, it will be a version 3 gff format")
     private String outputFile;
 
-    // todo prio1 filter stappen, dus -c --columnName, (hoe de value)
+    @CommandLine.Option(names = {"-c", "--columnName"}, description = "-c <columnName> <filterValue>\n" +
+            "column name options: sequenceId, source, featureType, startAndStop\n" +
+            "startAndStop <start>,<stop>")
+    private String columnName;
 
-
-    @CommandLine.Option(names = {"-f", "--filter-value"}, description = "Filter value")
-    private String filterOptions;
 
     // todo prio2 -a --attributes,
 
@@ -35,7 +33,6 @@ public class ArgsProcessor implements Runnable {
     @CommandLine.Option(names = {"-v"}, description = "Verbose logging")
     private boolean[] verbose;
 
-    // example marcel logging verbose
     @Override
     public void run() {
         // todo prio1 configfile
@@ -49,12 +46,12 @@ public class ArgsProcessor implements Runnable {
             logger.warning("GFF file failed the validation check.");
         }
         // todo prio1 je stopt het dus if can be gone:)
-        FileReader parser = new FileReader();
-        if (checker.isValidGFFFile(filePath)) {
-            parser.parseGFFFile(filePath);
-        } else {
-            logger.warning("Invalid GFF file. Cannot proceed with parsing.");
-        }
+        FileReader readFile = new FileReader();
+        if (columnName != null) {
+            readFile.parseGFFFile(filePath, columnName);
+        }else {
+            readFile.parseGFFFile(filePath);}
+
         //todo prio1 log4j goed toepaasen
 
     }

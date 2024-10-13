@@ -78,7 +78,7 @@ public class LineSeparator {
         return source;
     }
 
-    public String getDataRegion() {
+    public String getFeatureType() {
         return featureType;
     }
 
@@ -90,7 +90,7 @@ public class LineSeparator {
         return endIndex;
     }
 
-    public char getDot() {
+    public char getScore() {
         return score;
     }
 
@@ -98,11 +98,11 @@ public class LineSeparator {
         return strand;
     }
 
-    public char getDot2() {
+    public char getFrame() {
         return frame;
     }
 
-    public HashMap<String, String> getFeatureInformation() {
+    public HashMap<String, String> getAttributes() {
         return attributes;
     }
 }

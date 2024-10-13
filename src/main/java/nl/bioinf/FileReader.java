@@ -12,6 +12,7 @@ package nl.bioinf;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.sound.sampled.Line;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
@@ -28,7 +29,8 @@ public class FileReader {
      */
     private static final Logger logger = LogManager.getLogger(FileReader.class.getName());
     private List<LineSeparator> gffFile;
-    public void parseGFFFile(String filePath) {
+    //todo prio2 overload constructor with just the different combinations with the filtering
+    public List<LineSeparator> parseGFFFile(String filePath) {
         try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath))) {
             String line;
 
@@ -48,4 +50,32 @@ public class FileReader {
         } catch (IOException e) {
             logger.log(Level.SEVERE, "An error occurred while parsing the GFF file: " + filePath, e);
         }
+        return gffFile;
     }
+
+    public List<LineSeparator> parseGFFFile(String filePath, String columnName) {
+        try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath))) {
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                // Skip comment lines and headers
+                if (line.startsWith("#")) {
+                    continue;
+                    //todo prio1 onthoud voor output
+                }
+
+                // Split the line into columns
+                String[] columns = line.split("\t");
+                LineSeparator separatedRow = new LineSeparator(columns);
+                // if line is correct to the filtered value
+                if (Filter.ColumnName(separatedRow, columnName)){
+                    gffFile.add(separatedRow);
+                }
+
+            }
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "An error occurred while parsing the GFF file: " + filePath, e);
+        }
+        return gffFile;
+    }
+}
