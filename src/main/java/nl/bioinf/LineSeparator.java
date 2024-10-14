@@ -48,7 +48,7 @@ public class LineSeparator {
         // split the last column for the correct information
         makeFeatureInformation(featureStuff[8]);
         } catch(ArrayIndexOutOfBoundsException e) {
-            logger.error((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
+            logger.fatal((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
         }
     }
 
@@ -66,7 +66,7 @@ public class LineSeparator {
            attributes.put(featureSplit[i], featureSplit[i + 1]);
        }
     }catch(ArrayIndexOutOfBoundsException e) {
-           logger.error((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
+           logger.fatal((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
        }
     }
 

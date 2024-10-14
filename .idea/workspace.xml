@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="added all todos to make a simple version working">
+    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="added the first simple filter step">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +62,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -142,7 +144,7 @@
       <workItem from="1727679869679" duration="1070000" />
       <workItem from="1727682637500" duration="6198000" />
       <workItem from="1727774056381" duration="9242000" />
-      <workItem from="1728649690246" duration="11616000" />
+      <workItem from="1728649690246" duration="17793000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -176,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728651557845</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added the first simple filter step">
+      <option name="closed" value="true" />
+      <created>1728850310809</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728850310809</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +207,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="initial commit classes" />
     <MESSAGE value="added all todos to make a simple version working" />
-    <option name="LAST_COMMIT_MESSAGE" value="added all todos to make a simple version working" />
+    <MESSAGE value="added the first simple filter step" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the first simple filter step" />
   </component>
 </project>
