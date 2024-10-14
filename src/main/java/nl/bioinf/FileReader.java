@@ -9,6 +9,7 @@
  */
 package nl.bioinf;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -48,7 +49,7 @@ public class FileReader {
                 gffFile.add(separatedRow);
             }
         } catch (IOException e) {
-            logger.log(Level.SEVERE, "An error occurred while parsing the GFF file: " + filePath, e);
+            logger.fatal("An error occurred while parsing the GFF file: " + filePath, e);
         }
         return gffFile;
     }
@@ -74,7 +75,7 @@ public class FileReader {
 
             }
         } catch (IOException e) {
-            logger.log(Level.SEVERE, "An error occurred while parsing the GFF file: " + filePath, e);
+            logger.fatal("An error occurred while parsing the GFF file: " + filePath, e);
         }
         return gffFile;
     }
