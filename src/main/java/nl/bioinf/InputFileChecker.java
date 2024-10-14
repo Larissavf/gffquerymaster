@@ -23,7 +23,7 @@ public class InputFileChecker {
     public boolean isValidGFFFile(String filePath) {
         // Check file extension
         if (!filePath.endsWith(".gff")) {
-            logger.warning("File is not a .gff file.");
+            logger.warn("File is not a .gff file.");
             return false;
         }
 
@@ -35,12 +35,13 @@ public class InputFileChecker {
                 logger.info("File is a valid GFF file.");
                 return true;
             } else {
-                logger.warning("File is not a valid GFF file.");
+                logger.warn("File is not a valid GFF file.");
                 return false;
             }
 
         } catch (IOException e) {
-            logger.log(Level.SEVERE, "An error occurred while reading the file: " + filePath, e);
+            logger.fatal("An error occurred while reading the file: " + filePath, e);
             return false;
         }
     }
+}
