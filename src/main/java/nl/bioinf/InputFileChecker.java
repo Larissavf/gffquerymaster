@@ -1,7 +1,17 @@
+/**
+ * Checking if the given file has the correct setup to be parsed
+ *
+ *
+ * @author Cheyenne & Larissa
+ * @version 1.0
+ * @since 10-10-2024
+ */
 package nl.bioinf;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.io.FileNotFoundException;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -39,8 +49,17 @@ public class InputFileChecker {
                 return false;
             }
 
+        } catch (FileNotFoundException e) {
+            // Handle file not found error gracefully
+            logger.error("File not found: " + filePath);
+            return false;
         } catch (IOException e) {
-            logger.fatal("An error occurred while reading the file: " + filePath, e);
+            // Handle IO error (e.g., read errors)
+            logger.error("IO error while reading the file: " + filePath);
+            return false;
+        } catch (Exception e) {
+            // Catch any other unexpected errors
+            logger.fatal("An unexpected error occurred: " + filePath + " - " + e.getMessage());
             return false;
         }
     }

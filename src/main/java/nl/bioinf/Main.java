@@ -1,3 +1,11 @@
+/**
+ * starting point of the app
+ *
+ *
+ * @author Larissa
+ * @version 1.0
+ * @since 10-10-2024
+ */
 package nl.bioinf;
 
 import picocli.CommandLine;

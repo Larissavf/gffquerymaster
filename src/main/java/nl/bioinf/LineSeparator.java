@@ -12,10 +12,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class LineSeparator {
-    private static final Logger logger = LogManager.getLogger(ArgsProcessor.class.getName());
+    private static final Logger logger = LogManager.getLogger(LineSeparator.class.getName());
 
 //TODO parent opslaan
 // child opslaan als parent in dict staat
@@ -27,7 +29,7 @@ public class LineSeparator {
     private char score;
     private char strand;
     private char frame;
-    private HashMap<String, String> attributes;
+    private Map<String, String> attributes = new HashMap<>();
 
     /**
      * It separates the given String array in to the correct variables
@@ -48,7 +50,7 @@ public class LineSeparator {
         // split the last column for the correct information
         makeFeatureInformation(featureStuff[8]);
         } catch(ArrayIndexOutOfBoundsException e) {
-            logger.fatal((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
+            logger.fatal("The  file misses 1 or multiple columns, check the tabs");
         }
     }
 
@@ -66,7 +68,7 @@ public class LineSeparator {
            attributes.put(featureSplit[i], featureSplit[i + 1]);
        }
     }catch(ArrayIndexOutOfBoundsException e) {
-           logger.fatal((Marker) e, "The  file misses 1 or multiple columns, check the tabs");
+           logger.fatal("The  file misses 1 or multiple columns, check the tabs");
        }
     }
 
@@ -102,8 +104,23 @@ public class LineSeparator {
         return frame;
     }
 
-    public HashMap<String, String> getAttributes() {
+    public Map<String, String> getAttributes() {
         return attributes;
     }
+
+    @Override
+    public String toString() {
+        String format = "%s %s  %s  %d  %d  %c  %c  %c  %s";
+        return String.format(format, sequenceId, source, featureType, startIndex, endIndex, score, strand, frame, formatAttributes(attributes));
+    }
+
+    private String formatAttributes(Map<String, String> attributes) {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, String> entry : attributes.entrySet()) {
+            sb.append(entry.getKey()).append("=").append(entry.getValue()).append(";");
+        }
+        return sb.toString();
+    }
+
 }
 
