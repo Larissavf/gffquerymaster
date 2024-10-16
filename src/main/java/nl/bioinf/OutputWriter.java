@@ -2,9 +2,9 @@
  * to write a output gff file line for line
  *
  *
- * @author Cheyenne & Larissa
+ * @author Larissa
  * @version 1.0
- * @since 5-10-2024
+ * @since 15-10-2024
  */
 package nl.bioinf;
 
@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.List;
 
 public class OutputWriter {
     private static final Logger logger = LogManager.getLogger(OutputWriter.class.getName());
@@ -127,6 +128,13 @@ public class OutputWriter {
         } catch (IOException e) {
             logger.error("Something went wrong in writing the output file", e);
             System.exit(1);
+        }
+    }
+
+    public void writeOutput(List<LineSeparator> lines)
+    {
+        for (LineSeparator line : lines) {
+            writeOutput(line);
         }
     }
 }

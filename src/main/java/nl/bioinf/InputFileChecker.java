@@ -30,7 +30,7 @@ public class InputFileChecker {
      * @return true if the file is a GFF file, false otherwise.
      */
     private static final Logger logger = LogManager.getLogger(InputFileChecker.class.getName());
-    public boolean isValidGFFFile(String filePath) {
+    public static boolean isValidGFFFile(String filePath) {
         // Check file extension
         if (!filePath.endsWith(".gff")) {
             logger.warn("File is not a .gff file.");

@@ -10,12 +10,12 @@ package nl.bioinf;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class Filter {
-
+// todo prio2 make own system exit so delete the made files aswell
     private static final Logger logger = LogManager.getLogger(Filter.class.getName());
 
     /**
@@ -50,15 +50,12 @@ public class Filter {
 
         // Possible filter values
         String[] possibleInput = {"sequenceID", "source", "featureType", "startAndStop"};
-
         // Check if the given column name for filter is allowed
-        try {
-            if (!Arrays.asList(possibleInput).contains(filterColumn)) {
-                throw new Exception("The given column name is different from the allowed options");
-            }
-        } catch (Exception e) {
-            logger.error("The given column name is different from the options, change it to the allowed options");
+        if (!Arrays.asList(possibleInput).contains(filterColumn)) {
+                logger.fatal("The given column name is different from the allowed options");
+                System.exit(1);
         }
+
 
         // Returns a boolean if the value of the line is the same as the filter value
         return switch (filterColumn) {
@@ -87,7 +84,26 @@ public class Filter {
         return readLine.getStartIndex() >= start && readLine.getEndIndex() <= end;
     }
 
-    // TODO prio2: Filter step for children and parents
-    // TODO prio2: Filter step for attributes
+    /**
+     *Filters on all the attribute items and checks if the attribute according to the filter name has the filter value
+     *
+     * @param readLine is a LineSeparator object holding the feature
+     * @param filterObject is a String array with the filter name and the filter value
+     * @return a boolean if the feature has the correct value
+     */
+    public static boolean attributesName(LineSeparator readLine, String[] filterObject) {
+        String filterName = filterObject[0];
+        String filterValue = filterObject[1];
+
+        Map<String, String> attributes = readLine.getAttributes();
+        // check if the name is in the keys
+        if (attributes.containsKey(filterName)){
+            String attributesValue = attributes.get(filterName).toString();
+            // check if the value is the same
+            return attributesValue.contains(filterValue);
+        }
+        return false;
+
+    }
     // TODO prio3: Summary
 }

@@ -1,0 +1,72 @@
+/**
+ * if the user chose for the option inheritance
+ * when a features passes the filter all the features above what is the parents or has the same parent
+ * will be sent to the OutputWriter. All the features after the filtered feature will be saved
+ * and sent to the OutputWriter with the next correct feature.
+ *
+ * @author Larissa
+ * @version 1.0
+ * @since 16-10-2024
+ */
+package nl.bioinf;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Extendiator {
+    List<LineSeparator> extendedLines;
+    List<LineSeparator> children = null;
+    boolean childAdded = false;
+
+    /**
+     * feature add to the list<LineSeparator>
+     * it only contains the features from gene to the next gene, then it will reset.
+     * If necessary children will be saved.
+     *
+     * @param separatedRow is a LineSeparator object made from a feature
+     *
+     * **/
+    public void wholeObject(LineSeparator separatedRow) {
+        // object goes from gene to gene so starts from gene
+        if (separatedRow.getFeatureType().equals("gene")) {
+            // if one of the elements in the gene before has been added to the output file remember the rest of the gene feature
+            if (childAdded){
+                children = extendedLines;
+            }
+            //reset for the new gene feature
+            extendedLines.clear();
+            childAdded = false;
+        }
+        //add the element to the list to be possibly added
+        extendedLines.add(separatedRow);
+    }
+
+    /**
+     * If there have been made an object containing children of the last filter passed feature
+     * combine the old features with the new features, of what a feature has passed the filter
+     *
+     * **/
+
+    public List<LineSeparator> checkChildren() {
+        //are there some lines been processed since the last add to the output file?
+        if (children != null){
+            List<LineSeparator> newChildren = new ArrayList<LineSeparator>(children);
+            //combine the children of the last element and the stuff of the new element
+            newChildren.addAll(extendedLines);
+            // reset children for next  added element
+            children = null;
+            return newChildren;
+        };
+        return extendedLines;
+    }
+
+    /**
+     * If a feature has passed the filter the next possible following features that are
+     * children should be saved.
+     * **/
+    public void possibleChild() {
+        // to check if there are more children to that gene feature
+        childAdded = true;
+        extendedLines.clear();
+    }
+}
