@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="edits to the ArgsProcessor and readme a start">
+    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="changed the readme with the updated options">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/SummaryMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/Extendiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/Extendiator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/OutputWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/OutputWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -102,6 +104,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Larissa&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Laris/Documents/bioinf_local/year3/review/dgsea&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -165,7 +168,9 @@
       <workItem from="1727679869679" duration="1070000" />
       <workItem from="1727682637500" duration="6198000" />
       <workItem from="1727774056381" duration="9242000" />
-      <workItem from="1728649690246" duration="23112000" />
+      <workItem from="1728649690246" duration="72757000" />
+      <workItem from="1729252267624" duration="14691000" />
+      <workItem from="1729371212726" duration="15494000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -215,7 +220,39 @@
       <option name="project" value="LOCAL" />
       <updated>1728895688126</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added the OutputWriter fixed all the errors and is now working">
+      <option name="closed" value="true" />
+      <created>1729005727111</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1729005727111</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added the jar">
+      <option name="closed" value="true" />
+      <created>1729007096701</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729007096701</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added the functions attribute and inheritance">
+      <option name="closed" value="true" />
+      <created>1729107980926</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1729107980926</updated>
+    </task>
+    <task id="LOCAL-00010" summary="changed the readme with the updated options">
+      <option name="closed" value="true" />
+      <created>1729109575316</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729109575316</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +275,10 @@
     <MESSAGE value="added all todos to make a simple version working" />
     <MESSAGE value="added the first simple filter step" />
     <MESSAGE value="edits to the ArgsProcessor and readme a start" />
-    <option name="LAST_COMMIT_MESSAGE" value="edits to the ArgsProcessor and readme a start" />
+    <MESSAGE value="added the OutputWriter fixed all the errors and is now working" />
+    <MESSAGE value="added the jar" />
+    <MESSAGE value="added the functions attribute and inheritance" />
+    <MESSAGE value="changed the readme with the updated options" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the readme with the updated options" />
   </component>
 </project>

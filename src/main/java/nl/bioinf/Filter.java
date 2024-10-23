@@ -26,7 +26,7 @@ public class Filter {
      *
      * @return true if the line is equal to the asked value and needs to be used for the output
      */
-    public static boolean ColumnName(LineSeparator readLine, String filterObject) {
+    public static boolean columnName(LineSeparator readLine, String filterObject) {
        String filterColumn= "";
        String filterValue = "";
 
@@ -84,6 +84,7 @@ public class Filter {
         return readLine.getStartIndex() >= start && readLine.getEndIndex() <= end;
     }
 
+
     /**
      *Filters on all the attribute items and checks if the attribute according to the filter name has the filter value
      *
@@ -91,19 +92,36 @@ public class Filter {
      * @param filterObject is a String array with the filter name and the filter value
      * @return a boolean if the feature has the correct value
      */
-    public static boolean attributesName(LineSeparator readLine, String[] filterObject) {
-        String filterName = filterObject[0];
-        String filterValue = filterObject[1];
+    public static boolean attributesName(LineSeparator readLine, String filterObject) {
+        String filterName= "";
+        String filterValue = "";
+
+        // extract filter items
+        try {
+            filterName = filterObject.split("=")[0];
+            filterValue = filterObject.split("=")[1];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // Handle the case where "=" is missing or the format is invalid
+            logger.fatal("Invalid format: expected 'key=value', but got: " + filterObject);
+            System.exit(1);
+        } catch (NullPointerException e) {
+            // Handle the case where filterObject is null
+            logger.fatal("Error: The filterObject is null.");
+            System.exit(1);
+        } catch (Exception e) {
+            // Catch any other unexpected exceptions
+            logger.fatal("An unexpected error occurred: " + e.getMessage());
+            System.exit(1);
+        }
 
         Map<String, String> attributes = readLine.getAttributes();
         // check if the name is in the keys
         if (attributes.containsKey(filterName)){
-            String attributesValue = attributes.get(filterName).toString();
+            String attributesValue = attributes.get(filterName);
             // check if the value is the same
             return attributesValue.contains(filterValue);
         }
         return false;
 
     }
-    // TODO prio3: Summary
 }

@@ -2,7 +2,10 @@
 ### Introduction
 A commandline tool for linux and windows filtering a gff version 3 file.
 You can extract the correct lines that include certain information 
-that you are looking for. The output will be a ggf version 3 file.
+that you are looking for in the columns and in the attributes. The output will be a ggf version 3 file.  
+There's also the possibility to take the children who are linked in the attributes with to the output.
+
+You can also choose to make a summary of the gff file.
 
 You can apply the filter in the columns and the attributes.  
 This tool makes use of the packages picocli and log4j.
@@ -40,13 +43,15 @@ You can only filter it on 1 column value at the time.
                         exception: startAndStop=<start>-<stop>
     -a, --attribute     -a <attributeName><filterValue> 
     -I, --inheritance   If you want the parent with the children of the 
-                        succeeded filter step*.
+                        succeeded filter step.
+    -s, --summary       For the summary
 
 The attribute depends on the file itself cause attribute names can change.
 
 The Inheritance is a flag, if provided. When a feature item contains the wanted 
 filter value, if it is the parent or a child in the parent. All the children and 
 the parent will be written to the output.
+
 ### Project structure
 
 It's a standard gradle structure.

@@ -14,13 +14,12 @@ import org.apache.logging.log4j.Marker;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class LineSeparator {
     private static final Logger logger = LogManager.getLogger(LineSeparator.class.getName());
 
-//TODO parent opslaan
-// child opslaan als parent in dict staat
     private String sequenceId;
     private String source;
     private String featureType;
@@ -29,7 +28,7 @@ public class LineSeparator {
     private char score;
     private char strand;
     private char frame;
-    private Map<String, String> attributes = new HashMap<>();
+    private final Map<String, String> attributes = new LinkedHashMap<>();
 
     /**
      * It separates the given String array in to the correct variables

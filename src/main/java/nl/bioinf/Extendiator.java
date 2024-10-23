@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Extendiator {
-    List<LineSeparator> extendedLines;
+    List<LineSeparator> extendedLines = new ArrayList<>();
     List<LineSeparator> children = null;
     boolean childAdded = false;
 
@@ -47,16 +47,18 @@ public class Extendiator {
      *
      * **/
 
-    public List<LineSeparator> checkChildren() {
+    public List<LineSeparator> checkChildren(LineSeparator separatedRow) {
         //are there some lines been processed since the last add to the output file?
         if (children != null){
             List<LineSeparator> newChildren = new ArrayList<LineSeparator>(children);
             //combine the children of the last element and the stuff of the new element
             newChildren.addAll(extendedLines);
+            newChildren.add(separatedRow);
             // reset children for next  added element
             children = null;
             return newChildren;
         };
+        extendedLines.add(separatedRow);
         return extendedLines;
     }
 
