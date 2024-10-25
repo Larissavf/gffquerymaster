@@ -1,4 +1,4 @@
-package nl.bioinf;
+package nl.bioinf.output;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -6,9 +6,10 @@
  * @version 1.0
  * @since 15-10-2024
  */
-package nl.bioinf;
+package nl.bioinf.output;
 
-import java.nio.file.Paths;
+import nl.bioinf.objects.SummaryMaker;
+
 import java.util.Map;
 import java.util.Set;
 

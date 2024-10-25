@@ -8,7 +8,9 @@
  * @version 1.0
  * @since 16-10-2024
  */
-package nl.bioinf;
+package nl.bioinf.functionality;
+
+import nl.bioinf.objects.LineSeparator;
 
 import java.util.ArrayList;
 import java.util.List;

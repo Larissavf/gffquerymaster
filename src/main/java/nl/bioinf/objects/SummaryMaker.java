@@ -6,7 +6,7 @@
  * @version 1.0
  * @since 19-10-2024
  */
-package nl.bioinf;
+package nl.bioinf.objects;
 
 import java.util.HashMap;
 import java.util.HashSet;

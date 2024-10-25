@@ -6,18 +6,17 @@
  * @version 1.0
  * @since 15-10-2024
  */
-package nl.bioinf;
+package nl.bioinf.output;
 
+import nl.bioinf.objects.LineSeparator;
+import nl.bioinf.objects.SummaryMaker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * This class gets writes all the output to the output file

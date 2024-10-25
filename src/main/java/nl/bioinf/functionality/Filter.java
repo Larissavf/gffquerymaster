@@ -6,8 +6,9 @@
  * @version 1.0
  * @since 10-10-2024
  */
-package nl.bioinf;
+package nl.bioinf.functionality;
 
+import nl.bioinf.objects.LineSeparator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -6,14 +6,11 @@
  * @version 1.0
  * @since 10-10-2024
  */
-package nl.bioinf;
+package nl.bioinf.objects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

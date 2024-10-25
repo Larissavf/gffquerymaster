@@ -8,12 +8,16 @@
  */
 package nl.bioinf;
 
+import nl.bioinf.functionality.Extendiator;
+import nl.bioinf.functionality.Filter;
+import nl.bioinf.objects.LineSeparator;
+import nl.bioinf.objects.SummaryMaker;
+import nl.bioinf.output.OutputWriter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.Files;
 
 /**
  * This class goes through all the lines, connects it to all the needed
