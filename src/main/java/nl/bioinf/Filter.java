@@ -14,8 +14,10 @@ import org.apache.logging.log4j.Logger;
 import java.util.Arrays;
 import java.util.Map;
 
+/**
+ * This class is needed when the user has given a filter step in either the column or the attribute
+ */
 public class Filter {
-// todo prio2 make own system exit so delete the made files aswell
     private static final Logger logger = LogManager.getLogger(Filter.class.getName());
 
     /**

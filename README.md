@@ -32,7 +32,7 @@ java -jar gffquerymaster/build/libs/gffquerymaster-1.0-SNAPSHOT.jar -i <your/pat
 Possible options for the tool work as the following:  
 You'll need to give the key and the wanted value to what 
 the value in your file needs to be the same to.
-You can only filter it on 1 column value at the time.
+You can filter on multiple values
 
     -i, -input          location of the input file
     -o, --output        location of the output file, 
@@ -51,6 +51,9 @@ The attribute depends on the file itself cause attribute names can change.
 The Inheritance is a flag, if provided. When a feature item contains the wanted 
 filter value, if it is the parent or a child in the parent. All the children and 
 the parent will be written to the output.
+
+When there's not given any output path, a general path will be created.
+If the given output path already has the existing file, it will be deleted and rewritten.
 
 ### Project structure
 

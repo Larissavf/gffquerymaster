@@ -13,6 +13,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * The object containing all the information necessary to make a summary
+ */
 public class SummaryMaker {
     private int amountFeatures = 0;
     private final Map<String, Integer> featureTypesFile = new HashMap<>();
@@ -90,22 +93,42 @@ public class SummaryMaker {
         }
     }
 
+    /**
+     * get the total amount of features in the file
+     * @return int containing the amount of total features
+     */
     public int getAmountFeatures() {
         return this.amountFeatures;
     }
 
+    /**
+     * get the different types of features and how much they are present
+     * @return map containing the amount and types of features
+     */
     public Map<String, Integer> getFeatureTypesFile() {
         return featureTypesFile;
     }
 
+    /**
+     * get the amount of nucleotide per feature
+     * @return map containing the amount of nucleotides per feature
+     */
     public Map<String, Integer> getAmountNucPerFeature() {
         return amountNucPerFeature;
     }
 
+    /**
+     * get the different source types in the file
+     * @return set containing the source types
+     */
     public Set<String> getSourceTypesFile() {
         return sourceTypesFile;
     }
 
+    /**
+     * get the different attributes present in a feature
+     * @return map containing the feature with the different attributes in a set
+     */
     public Map<String, Set<String>> getAttributesTypesFile() {
         return attributesTypesFile;
     }

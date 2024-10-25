@@ -17,6 +17,9 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * This class gets used to make for every line read in ReadFile to a usable object
+ */
 public class LineSeparator {
     private static final Logger logger = LogManager.getLogger(LineSeparator.class.getName());
 
@@ -71,48 +74,93 @@ public class LineSeparator {
        }
     }
 
+    /**
+     * Get the sequence id
+     * @return String containing the sequenceId
+     */
     public String getSequenceId() {
         return sequenceId;
     }
 
+    /**
+     * get the source
+     * @return String containing the source
+     */
     public String getSource() {
         return source;
     }
 
+    /**
+     * get the feature type
+     * @return String containing the featureType
+     */
     public String getFeatureType() {
         return featureType;
     }
 
+    /**
+     * get the start index
+     * @return int containing the startIndex
+     */
     public int getStartIndex() {
         return startIndex;
     }
 
+    /**
+     * get the end index
+     * @return int containing the endIndex
+     */
     public int getEndIndex() {
         return endIndex;
     }
 
+    /**
+     * get the score
+     * @return char containing the score
+     */
     public char getScore() {
         return score;
     }
 
+    /**
+     * get the strand
+     * @return char containing the strand
+     */
     public char getStrand() {
         return strand;
     }
 
+    /**
+     * get the frame
+     * @return char containing the frame
+     */
     public char getFrame() {
         return frame;
     }
 
+    /**
+     * get the attributes
+     * @return linkedHashMap containing the attributes in keys and values
+     */
     public Map<String, String> getAttributes() {
         return attributes;
     }
 
+    /**
+     * tostring that al the items will be written back perfectly like the original input
+     * @return String formatted containing the every column from the original input in the same order
+     */
     @Override
     public String toString() {
         String format = "%s %s  %s  %d  %d  %c  %c  %c  %s";
         return String.format(format, sequenceId, source, featureType, startIndex, endIndex, score, strand, frame, formatAttributes(attributes));
     }
 
+    /**
+     * formating the attributes hashmap in the correct way so it can be split on "=" and ";"
+     * @param attributes linkedHashMap containing the attributes in keys and values
+     * @return String containing the new correct formatted Map
+     */
     private String formatAttributes(Map<String, String> attributes) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : attributes.entrySet()) {

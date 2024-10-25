@@ -9,14 +9,17 @@
 package nl.bioinf;
 
 import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.core.config.Configurator;
 import picocli.CommandLine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @CommandLine.Command(name = "gff-filter", mixinStandardHelpOptions = true, version = "1.0")
 
+/**
+ * processing the arguments the user has given and activating the right needed functionality
+ */
 public class ArgsProcessor implements Runnable {
-    //todo logging
     private static final Logger logger = LogManager.getLogger(ArgsProcessor.class.getName());
 
     @CommandLine.Option(names = {"-i", "--input"}, description = "The input file, it needs to be in the version 3 gff format")
@@ -48,13 +51,53 @@ public class ArgsProcessor implements Runnable {
 
 
     @CommandLine.Option(names = {"-v"}, description = "Verbose logging")
-    private boolean[] verbose;
+    private boolean[] verbose = new boolean[0];
 
+    /**
+     * to start the application, putting the right information in the right spots
+     */
     @Override
     public void run() {
         // create file reader, file path gets determined
         FileReader readFile = new FileReader(inputFile, outputFile);
 
+        //set all the possible given features
+        possibleFilterSetters(readFile);
+
+        // Create objects to read and check the file
+        creatingFile(readFile);
+
+    }
+
+    /**
+     * starts parsing the file, checks the file
+     * @param readFile FileReader object that's going to parse through the file
+     */
+    private void creatingFile(FileReader readFile) {
+        // check if file is given
+        if (inputFile != null) {
+            // check file
+            if (InputFileChecker.isValidGFFFile(inputFile)) {
+                logger.info("GFF file passed the validation check.");
+            } else { // Didn't pass the check system exit
+                logger.fatal("GFF file failed the validation check.");
+                System.exit(1);
+            }
+            //read and filter file
+            readFile.parseGFFFile(inputFile);
+        } else{
+            //No input file system exit
+            logger.fatal("there's no input file given, please add your file");
+            System.exit(1);
+        }
+
+    }
+
+    /**
+     * Sets all the values of all the possible filters that van be given from the user.
+     * @param readFile FileReader object that's going to parse through the file
+     */
+    private void possibleFilterSetters(FileReader readFile) {
         // user asked for version with all the children with their parent
         if (inheritance) {
             readFile.setExtended();
@@ -75,31 +118,15 @@ public class ArgsProcessor implements Runnable {
             readFile.setAttribute(attributes);
             logger.info("The file gets filtered with the following command " + attributes);
         }
-        // Create objects to read and check the file
-        if (inputFile != null) {
-            // check file
-            if (InputFileChecker.isValidGFFFile(inputFile)) {
-                logger.info("GFF file passed the validation check.");
-            } else { // Didn't pass the check system exit
-                logger.fatal("GFF file failed the validation check.");
-                System.exit(1);
-            }
-            //read and filter file
-            readFile.parseGFFFile(inputFile);
-        } else{
-            //No input file system exit
-            logger.fatal("there's no input file given, please add your file");
-            System.exit(1);
+        // user wanted a wide logging
+        if (verbose.length > 1) {
+            // Set logging to DEBUG
+            Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.DEBUG);
+        } else if (verbose.length > 0) {
+            // Set logging to INFO
+            Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.INFO);
         }
-
-// todo verbosse
-//        if (verbose.length > 1) {
-//            // Set logging to DEBUG
-//        } else if (verbose.length > 0) {
-//            // Set logging to INFO
-//        }
-
-    }
+        }
 }
 
 

@@ -20,6 +20,9 @@ import java.io.IOException;
 
 // file validator
 
+/**
+ * This class gets used for checking the file
+ */
 public class InputFileChecker {
     private static final Logger logger = LogManager.getLogger(InputFileChecker.class.getName());
 

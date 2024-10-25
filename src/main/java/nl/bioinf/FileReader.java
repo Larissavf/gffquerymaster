@@ -15,7 +15,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 
-
+/**
+ * This class goes through all the lines, connects it to all the needed
+ * functionality asked by the user and gets eventually written to the output file.
+ */
 public class FileReader {
     private static final Logger logger = LogManager.getLogger(FileReader.class.getName());
     // constructor values
@@ -68,7 +71,7 @@ public class FileReader {
     }
 
     /**
-     * Constructor to make the necessary objects for creating the end product. Like the outputWriter and to in.
+     * Constructor to make the necessary objects for creating the end product. Like the outputWriter.
      * @param inputFilePath String containing the path to the input file
      * @param outputFilePath String containing the path to the output file
      */
@@ -141,7 +144,7 @@ public class FileReader {
             }
             // write the summary object
             if(summary){
-                product.writeOutput(summaryWriter);
+                product.writesummary(summaryWriter);
             }
             System.out.println("Done");
         } catch (IOException e) {
