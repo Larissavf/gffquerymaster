@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-//todo prio1 jog4j
+//todo prio1 log4j
 
 // file validator
 

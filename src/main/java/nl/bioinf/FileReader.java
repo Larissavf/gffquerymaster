@@ -20,7 +20,7 @@ import java.util.List;
 
 
 // Goes through all the lines makes feature object witch gets combined in a linked list
-// extra list with the heridatory of the objects
+// extra list with the hereditary of the objects
 public class FileReader {
 
     /**
