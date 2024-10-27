@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="added the first simple filter step">
+    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="edits to the ArgsProcessor and readme a start">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +64,24 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Larissa" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
@@ -75,21 +96,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.gffquerymaster [build].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Larissa",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.gffquerymaster [build].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Larissa&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster" />
@@ -144,7 +165,7 @@
       <workItem from="1727679869679" duration="1070000" />
       <workItem from="1727682637500" duration="6198000" />
       <workItem from="1727774056381" duration="9242000" />
-      <workItem from="1728649690246" duration="17793000" />
+      <workItem from="1728649690246" duration="23112000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -186,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728850310809</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="edits to the ArgsProcessor and readme a start">
+      <option name="closed" value="true" />
+      <created>1728895688126</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728895688126</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +237,7 @@
     <MESSAGE value="initial commit classes" />
     <MESSAGE value="added all todos to make a simple version working" />
     <MESSAGE value="added the first simple filter step" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the first simple filter step" />
+    <MESSAGE value="edits to the ArgsProcessor and readme a start" />
+    <option name="LAST_COMMIT_MESSAGE" value="edits to the ArgsProcessor and readme a start" />
   </component>
 </project>

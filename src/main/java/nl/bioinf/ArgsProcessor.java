@@ -1,3 +1,11 @@
+/**
+ * Processing of the arguments through picocli.
+ * Running the app.
+ *
+ * @author Cheyenne & Larissa
+ * @version 1.0
+ * @since 25-09-2024
+ */
 package nl.bioinf;
 
 import org.apache.logging.log4j.Level;
@@ -13,13 +21,14 @@ public class ArgsProcessor implements Runnable {
     @CommandLine.Option(names = {"-i", "--input"}, description = "The input file, it needs to be in the version 3 gff format")
     private String inputFile;
 
-    @CommandLine.Option(names = {"-o", "--output"}, description = "The location for the output file, it will be a version 3 gff format")
+    @CommandLine.Option(names = {"-o", "--output"}, description = "The location for the output file, it will be a version 3 gff format \n" +
+            "When not specified it will use local direction")
     private String outputFile;
 
     //filter options
-    @CommandLine.Option(names = {"-c", "--columnName"}, description = "-c <columnName> <filterValue>\n" +
+    @CommandLine.Option(names = {"-c", "--columnName"}, description = "-c <columnName>=<filterValue>\n" +
             "column name options: sequenceId, source, featureType, startAndStop\n" +
-            "startAndStop <start>,<stop>")
+            "startAndStop=<start>-<stop>")
     private String columnName;
 
 
@@ -43,24 +52,28 @@ public class ArgsProcessor implements Runnable {
     @Override
     public void run() {
         // todo prio1 configfile
-        InputFileChecker checker = new InputFileChecker();
-        String filePath = "/Users/cheyennebrouwer/Documents/24-25/JAVA/ncbi_dataset_gff/ncbi_dataset/data/GCA_000009045.1/genomic.gff";  // Replace with your file path
-        // check file
-        if (checker.isValidGFFFile(filePath)) {
-            logger.info("GFF file passed the validation check.");
-        } else {
-            logger.log(Level.FATAL, "GFF file failed the validation check.");
+        if (inputFile != null) {
+            InputFileChecker checker = new InputFileChecker();
+            // check file
+            if (checker.isValidGFFFile(inputFile)) {
+                logger.info("GFF file passed the validation check.");
+            } else {
+                logger.log(Level.FATAL, "GFF file failed the validation check.");
+                System.exit(1);
+            }
+            //read and filter file
+            FileReader readFile = new FileReader();
+            if (columnName != null) {
+                logger.info("The file gets filtered with the following command " + columnName);
+                readFile.parseGFFFile(inputFile, columnName, outputFile);
+            } else {
+                logger.info("The file doesnt get filtered");
+                readFile.parseGFFFile(inputFile, outputFile);
+            }
+        } else{
+            logger.fatal("there's no input file given, please add your file");
             System.exit(1);
         }
-        //read and filter file
-        FileReader readFile = new FileReader();
-        if (columnName != null) {
-            logger.info("The file gets filtered with the following command " + columnName);
-            readFile.parseGFFFile(filePath, columnName);
-        }else {
-            logger.info("The file doesnt get filtered");
-            readFile.parseGFFFile(filePath);}
-
 //
 //        if (verbose.length > 1) {
 //            // Set logging to DEBUG
