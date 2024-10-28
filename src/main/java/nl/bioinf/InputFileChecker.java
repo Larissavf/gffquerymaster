@@ -18,6 +18,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+//todo prio1 jog4j
+
 // file validator
 
 /**

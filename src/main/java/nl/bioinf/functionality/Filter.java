@@ -59,7 +59,6 @@ public class Filter {
                 System.exit(1);
         }
 
-
         // Returns a boolean if the value of the line is the same as the filter value
         return switch (filterColumn) {
             case "sequenceId" -> filterValue.equals(readLine.getSequenceId());
@@ -77,15 +76,36 @@ public class Filter {
      * @return true if the line has coordinates fitting in the asked region
      */
     // Prio1: Filter step to determine which features are within the x to y coordinate range
-    public static boolean coordinates(LineSeparator readLine, String filterValue) {
-        // Assuming filterValue is in the format "start-end", e.g., "1000-2000"
-        String[] range = filterValue.split("-");
-        int start = Integer.parseInt(range[0]);
-        int end = Integer.parseInt(range[1]);
+    public static boolean coordinates(String filterValue, LineSeparator readLine, boolean exactMatch) {
+        try {
+            String[] range = filterValue.split("-");
+            if (range.length != 2) {
+                throw new IllegalArgumentException("Invalid range format. Expected format: start-end.");
+            }
 
-        // Check if the feature is within the given coordinate range
-        return readLine.getStartIndex() >= start && readLine.getEndIndex() <= end;
+            int start = Integer.parseInt(range[0]); // User-specified start coordinate
+            int end = Integer.parseInt(range[1]);   // User-specified end coordinate
+
+            if (start > end) {
+                throw new IllegalArgumentException("Start coordinate cannot be greater than end coordinate.");
+            }
+
+            // Get the feature's start and end from LineSeparator
+            int featureStart = readLine.getStartIndex();
+            int featureEnd = readLine.getEndIndex();
+
+            if (exactMatch) {
+                // Exact match logic: feature must exactly match the given coordinates
+                return featureStart == start && featureEnd == end;
+            } else {
+                // Overlap logic: feature must lie within or overlap the given range
+                return featureStart <= end && featureEnd >= start;
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Coordinates must be valid integers.", e);
+        }
     }
+
 
 
     /**
