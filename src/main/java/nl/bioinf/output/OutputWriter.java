@@ -74,7 +74,8 @@ public class OutputWriter extends PathDeterminer {
             System.exit(1);
         }
         // it's a header
-        headers.add(line + "\n");
+        if (!line.startsWith("##")){
+            headers.add(line + "\n");}
     }
 
     /**

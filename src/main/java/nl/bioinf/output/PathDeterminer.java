@@ -16,7 +16,7 @@ import java.util.List;
 public class PathDeterminer {
     private static final Logger logger = LogManager.getLogger(PathDeterminer.class.getName());
     Path dataPath;
-    List<String> headers = new LinkedList<String>();
+    List<String> headers = new LinkedList<>();
 
     /**
      * Changes for linux or windows, but make the default outputPath if not given
@@ -24,7 +24,7 @@ public class PathDeterminer {
      *
      * @param inputPathString The path to the GFF file to be parsed.
      */
-    Path createDataPath(String inputPathString){
+    public Path createDataPath(String inputPathString){
         // set the default outputPath
         String currentDirectory = System.getProperty("user.dir");
         Path inputPath = Paths.get(inputPathString);

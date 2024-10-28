@@ -48,9 +48,9 @@ public class SummaryOutputfileMaker {
         //add all features of the file
         for ( String featureNucTypeAndCount: featuresNucAndCounts.keySet()){
             // determine the average amount of nucleotides of a feature
-            int countNucOfFeature = featuresAndCounts.get(featureNucTypeAndCount);
-            float average = (float) countNucOfFeature /featuresAndCounts.get(featureNucTypeAndCount);
-            sb.append(featureNucTypeAndCount).append("   ").append(Math.round(average)).append(" nucleotides   with a total of ").append(countNucOfFeature).append("features\n");
+            int countNucOfFeature = featuresNucAndCounts.get(featureNucTypeAndCount);
+            float average = (float) countNucOfFeature / featuresAndCounts.get(featureNucTypeAndCount);
+            sb.append(featureNucTypeAndCount).append("   ").append(Math.round(average)).append(" nucleotides   with a total of ").append(countNucOfFeature).append(" nucleotides\n");
         }
     }
     /**

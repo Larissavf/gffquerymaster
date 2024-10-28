@@ -37,6 +37,7 @@ public class FileReader {
     private String columnName;
     boolean attribute = false;
     private String attributeName;
+    private boolean exactMatch = false;
 
     /**
  * If the option inheritance is chosen the file needs to make use of the
@@ -72,6 +73,14 @@ public class FileReader {
     public void setAttribute(String attribute) {
         this.attribute = true;
         this.attributeName = attribute;
+    }
+
+    /**
+     * if chosen for the option exact match
+     * the values will be exactly as the filter value, or they fit in the filter value
+     */
+    public void setExactMatch(){
+        this.exactMatch = true;
     }
 
     /**
@@ -169,7 +178,7 @@ public class FileReader {
         int i = 0;
         boolean passedFilter;
         do {
-            passedFilter = Filter.attributesName(separatedRow, attributeNames[i]);
+            passedFilter = Filter.attributesName(separatedRow, attributeNames[i], exactMatch);
             i++;
         }
         while (passedFilter & attributeNames.length - 1 > i);
@@ -191,7 +200,7 @@ public class FileReader {
         int i = 0;
         boolean passedFilter;
         do {
-            passedFilter = Filter.columnName(separatedRow, columnNames[i]);
+            passedFilter = Filter.columnName(separatedRow, columnNames[i], exactMatch);
             i++;
         }
         while (passedFilter & columnNames.length - 1 > i);

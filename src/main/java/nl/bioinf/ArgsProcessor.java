@@ -45,6 +45,9 @@ public class ArgsProcessor implements Runnable {
     @CommandLine.Option(names = {"-I", "--inheritance"}, description = "The parents and children together in the output file")
     private boolean inheritance;
 
+    @CommandLine.Option(names = {"-E", "--exact"}, description = "The value needs to be exactly in or the same as the filter value")
+    private boolean exactMatch;
+
     @CommandLine.Option(names = {"--summary"}, description = "Summary containing the following items: \n" +
             "The amount of features per type, the amount of nucleotides per feature and the different type of attributes in a feature")
     private boolean summary;
@@ -117,6 +120,10 @@ public class ArgsProcessor implements Runnable {
         if (attributes != null) {
             readFile.setAttribute(attributes);
             logger.info("The file gets filtered with the following command " + attributes);
+        }
+        // user wanted the exact values
+        if (exactMatch) {
+            readFile.setExactMatch();
         }
         // user wanted a wide logging
         if (verbose.length > 1) {
