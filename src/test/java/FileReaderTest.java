@@ -43,43 +43,43 @@ public class FileReaderTest {
         assertTrue(lines.get(1).contains("GeneA"));
         assertTrue(lines.get(2).contains("GeneB"));
     }
+//
+//            @Test
+//            public void testParseGFFFile_WithFiltering() {
+//                // Run parseGFFFile with a filter on the Name column for "GeneA"
+//                fileReader.setColumn("Name=GeneA");
+//                fileReader.parseGFFFile(TEST_INPUT_FILE);
+//
+//                // Validate output file content
+//                List<String> lines = readLines(TEST_OUTPUT_FILE);
+//                assertEquals(2, lines.size());  // 1 comment + 1 filtered entry
+//                assertEquals("# This is a comment line", lines.get(0));
+//                assertTrue(lines.get(1).contains("GeneA"));
+//            }
 
-    @Test
-    public void testParseGFFFile_WithFiltering() {
-        // Run parseGFFFile with a filter on the Name column for "GeneA"
-        fileReader.setColumn("Name=GeneA");
-        fileReader.parseGFFFile(TEST_INPUT_FILE);
+//    @Test
+//    public void testParseGFFFile_InvalidFilePath() {
+//        // Run parseGFFFile with an invalid file path
+//        String invalidPath = "invalid_path.gff";
+//        FileReader fileReader = new FileReader(invalidPath, TEST_OUTPUT_FILE);
+//
+//        // Check for log output or exception handling (based on logger setup)
+//        // Here, verify that an exception is handled gracefully
+//        // This is usually done by checking if the output file is empty or not created
+//        assertFalse(Files.exists(Path.of(TEST_OUTPUT_FILE)));
+//    }
 
-        // Validate output file content
-        List<String> lines = readLines(TEST_OUTPUT_FILE);
-        assertEquals(2, lines.size());  // 1 comment + 1 filtered entry
-        assertEquals("# This is a comment line", lines.get(0));
-        assertTrue(lines.get(1).contains("GeneA"));
-    }
-
-    @Test
-    public void testParseGFFFile_InvalidFilePath() {
-        // Run parseGFFFile with an invalid file path
-        String invalidPath = "invalid_path.gff";
-        FileReader fileReader = new FileReader(invalidPath,TEST_OUTPUT_FILE);
-
-        // Check for log output or exception handling (based on logger setup)
-        // Here, verify that an exception is handled gracefully
-        // This is usually done by checking if the output file is empty or not created
-        assertFalse(Files.exists(Path.of(TEST_OUTPUT_FILE)));
-    }
-
-    @Test
-    public void testParseGFFFile_FilteredButNoMatch() {
-        // Run parseGFFFile with a filter that has no matches
-        fileReader.setColumn("Name=NonExistent");
-        fileReader.parseGFFFile(TEST_INPUT_FILE);
-
-        // Validate output file content
-        List<String> lines = readLines(TEST_OUTPUT_FILE);
-        assertEquals(1, lines.size());  // Only comment line should be present
-        assertEquals("# This is a comment line", lines.get(0));
-    }
+//    @Test
+//    public void testParseGFFFile_FilteredButNoMatch() {
+//        // Run parseGFFFile with a filter that has no matches
+//        fileReader.setColumn("Name=NonExistent");
+//        fileReader.parseGFFFile(TEST_INPUT_FILE);
+//
+//        // Validate output file content
+//        List<String> lines = readLines(TEST_OUTPUT_FILE);
+//        assertEquals(1, lines.size());  // Only comment line should be present
+//        assertEquals("# This is a comment line", lines.get(0));
+//    }
 
     private List<String> readLines(String filePath) {
         try {

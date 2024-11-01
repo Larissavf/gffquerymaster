@@ -103,7 +103,7 @@ public class OutputWriter extends PathDeterminer {
         sb.append("\nThe source types for this genome:\n").append(summary.getSourceTypesFile().toString()).append("\n");
 
         //total amount of features
-        SummaryOutputfileMaker.totalAmountOfFeaturesSB(sb, summary);
+        SummaryOutputfileMaker.totalAmountOfFeatures(sb, summary);
 
         //average amount of nucleotides per features
         SummaryOutputfileMaker.averageAmountOfNucleotidesPerFeature(sb, summary);
