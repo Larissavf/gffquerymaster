@@ -21,7 +21,7 @@ public class FileReaderTest {
     @BeforeEach
     public void setup() throws IOException {
         // Create a FileReader instance
-        fileReader = new FileReader();
+        fileReader = new FileReader(TEST_INPUT_FILE,TEST_OUTPUT_FILE);
 
         // Mocking the input GFF file
         try (PrintWriter writer = new PrintWriter(new FileWriter(TEST_INPUT_FILE))) {
@@ -34,7 +34,7 @@ public class FileReaderTest {
     @Test
     public void testParseGFFFile_WithoutFiltering() {
         // Run parseGFFFile without filtering
-        fileReader.parseGFFFile(TEST_INPUT_FILE, TEST_OUTPUT_FILE);
+        fileReader.parseGFFFile(TEST_INPUT_FILE);
 
         // Validate output file content
         List<String> lines = readLines(TEST_OUTPUT_FILE);
@@ -47,7 +47,8 @@ public class FileReaderTest {
     @Test
     public void testParseGFFFile_WithFiltering() {
         // Run parseGFFFile with a filter on the Name column for "GeneA"
-        fileReader.parseGFFFile(TEST_INPUT_FILE, "Name=GeneA", TEST_OUTPUT_FILE);
+        fileReader.setColumn("Name=GeneA");
+        fileReader.parseGFFFile(TEST_INPUT_FILE);
 
         // Validate output file content
         List<String> lines = readLines(TEST_OUTPUT_FILE);
@@ -60,7 +61,7 @@ public class FileReaderTest {
     public void testParseGFFFile_InvalidFilePath() {
         // Run parseGFFFile with an invalid file path
         String invalidPath = "invalid_path.gff";
-        fileReader.parseGFFFile(invalidPath, TEST_OUTPUT_FILE);
+        FileReader fileReader = new FileReader(invalidPath,TEST_OUTPUT_FILE);
 
         // Check for log output or exception handling (based on logger setup)
         // Here, verify that an exception is handled gracefully
@@ -71,7 +72,8 @@ public class FileReaderTest {
     @Test
     public void testParseGFFFile_FilteredButNoMatch() {
         // Run parseGFFFile with a filter that has no matches
-        fileReader.parseGFFFile(TEST_INPUT_FILE, "Name=NonExistent", TEST_OUTPUT_FILE);
+        fileReader.setColumn("Name=NonExistent");
+        fileReader.parseGFFFile(TEST_INPUT_FILE);
 
         // Validate output file content
         List<String> lines = readLines(TEST_OUTPUT_FILE);
@@ -87,5 +89,6 @@ public class FileReaderTest {
             return null;
         }
     }
+
 }
 

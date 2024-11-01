@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="massive changes to the FileReader and changed the whole way of it working, to now a fully working product, with inheratance and summary added aswell">
+    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="summary complete and extra functionality exact match">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/gffquerymaster-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/gffquerymaster-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/Extendiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/Extendiator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/OutputWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/OutputWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FileReaderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FilterTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/InputFileCheckerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LineSeparatorTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,10 +89,13 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Cheyenne" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/nl/bioinf/output/PathDeterminer.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -108,24 +109,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.gffquerymaster [:nl.bioinf.TestClass.main()].executor": "Run",
-    "Gradle.gffquerymaster [build].executor": "Run",
-    "Gradle.gffquerymaster [javadoc].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Larissa",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Laris/Documents/bioinf_local/year3/review/dgsea",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.gffquerymaster [:nl.bioinf.TestClass.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.gffquerymaster [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.gffquerymaster [javadoc].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Larissa&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Laris/Documents/bioinf_local/year3/review/dgsea&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster" />
@@ -191,9 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestClass" />
         <item itemvalue="Gradle.gffquerymaster [javadoc]" />
         <item itemvalue="Gradle.gffquerymaster [build]" />
+        <item itemvalue="Application.TestClass" />
+        <item itemvalue="Application.TestClass" />
+        <item itemvalue="Gradle.gffquerymaster [javadoc]" />
       </list>
     </recent_temporary>
   </component>
@@ -220,6 +223,7 @@
       <workItem from="1728649690246" duration="72757000" />
       <workItem from="1729252267624" duration="14691000" />
       <workItem from="1729371212726" duration="25268000" />
+      <workItem from="1730047093647" duration="11050000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -309,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729701384781</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="summary complete and extra functionality exact match">
+      <option name="closed" value="true" />
+      <created>1730133738996</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730133738996</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +349,7 @@
     <MESSAGE value="added the functions attribute and inheritance" />
     <MESSAGE value="changed the readme with the updated options" />
     <MESSAGE value="massive changes to the FileReader and changed the whole way of it working, to now a fully working product, with inheratance and summary added aswell" />
-    <option name="LAST_COMMIT_MESSAGE" value="massive changes to the FileReader and changed the whole way of it working, to now a fully working product, with inheratance and summary added aswell" />
+    <MESSAGE value="summary complete and extra functionality exact match" />
+    <option name="LAST_COMMIT_MESSAGE" value="summary complete and extra functionality exact match" />
   </component>
 </project>

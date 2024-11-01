@@ -90,23 +90,6 @@ public class OutputWriter extends PathDeterminer {
     }
 
     /**
-     * write the summary output file
-     * @param sb an object containing the StringBuilder holding information to make the summary outputfile
-     */
-    public void writeOutput(StringBuilder sb){
-        // write to file
-        try (BufferedWriter writer = Files.newBufferedWriter(dataPath, StandardOpenOption.APPEND)) {
-            writer.write(sb.toString());
-        } catch (NoSuchFileException e) {
-            logger.error("File doesn't exist " + dataPath);
-            System.exit(1);
-        } catch (IOException e) {
-            logger.error("Something went wrong in writing the output file", e);
-            System.exit(1);
-        }
-    }
-
-    /**
      * make the summary output file
      * @param summary an object containing the needed information to make the summary outputfile
      */
@@ -135,7 +118,7 @@ public class OutputWriter extends PathDeterminer {
         createTheFile();
 
         // write to the file
-        writeOutput(sb);
+        writeOutput(sb.toString());
     }
 
 

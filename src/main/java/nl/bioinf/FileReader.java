@@ -153,7 +153,10 @@ public class FileReader {
                 inheritance.wholeObject(separatedRow);
                 } else if (passedFilter){// just write the output out to the output file
                     product.writeOutput(separatedRow);
-                };
+                } else {
+                    product.writeOutput(separatedRow);
+                }
+                ;
             }
             // write the summary object
             if(summary){

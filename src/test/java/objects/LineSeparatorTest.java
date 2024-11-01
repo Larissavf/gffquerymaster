@@ -1,4 +1,6 @@
-import nl.bioinf.LineSeparator;
+package objects;
+
+import nl.bioinf.objects.LineSeparator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
