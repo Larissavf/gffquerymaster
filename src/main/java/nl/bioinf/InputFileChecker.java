@@ -18,22 +18,19 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+//todo prio1 log4j
+
 // file validator
 
-/**
- * This class gets used for checking the file
- */
 public class InputFileChecker {
-    private static final Logger logger = LogManager.getLogger(InputFileChecker.class.getName());
-
     /**
      * Checks if the provided file is a GFF file based on its extension and format.
      *
      * @param filePath The path to the file to be checked.
      * @return true if the file is a GFF file, false otherwise.
      */
-    public static boolean isValidGFFFile(String filePath) {
-
+    private static final Logger logger = LogManager.getLogger(InputFileChecker.class.getName());
+    public boolean isValidGFFFile(String filePath) {
         // Check file extension
         if (!filePath.endsWith(".gff")) {
             logger.warn("File is not a .gff file.");
