@@ -1,3 +1,10 @@
+/**
+ * Test for InputFilChecker
+ * @author Cheyenne
+ * @version 1.0
+ * @since
+ */
+
 import nl.bioinf.InputFileChecker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -41,7 +41,7 @@ public class FileReader {
 
     /**
  * If the option inheritance is chosen the file needs to make use of the
- * extended lines that contains all the subfeatures from a gene.
+ * extended lines that contains all the sub features from a gene.
  * **/
     public void setExtended() {
         this.extended = true;
@@ -145,7 +145,7 @@ public class FileReader {
                     summaryWriter.makeSummary(separatedRow);
                     product.deleteFileOutput();
                 }
-                // checking if the option Inhertance has been given and the extende version is needed
+                // checking if the option Inheritance has been given and the extended version is needed
                 if (passedFilter & extended){//write part one to the output file
                     inheritance.possibleChild();
                     product.writeOutput(inheritance.checkChildren(separatedRow));
@@ -156,11 +156,10 @@ public class FileReader {
                 } else {
                     product.writeOutput(separatedRow);
                 }
-                ;
             }
             // write the summary object
             if(summary){
-                product.writesummary(summaryWriter);
+                product.writeSummary(summaryWriter);
             }
             System.out.println("Done");
         } catch (IOException e) {
@@ -173,7 +172,7 @@ public class FileReader {
      * @param separatedRow the parsed line
      */
     private boolean readLineOnAttribute(LineSeparator separatedRow) {
-        // for the possibilty of multiple input
+        // for the possibility of multiple input
         String tempAttributeName = attributeName + ",";
         String[] attributeNames = tempAttributeName.split(",");
 
@@ -185,7 +184,7 @@ public class FileReader {
             i++;
         }
         while (passedFilter & attributeNames.length - 1 > i);
-        // return the state of the filterstep
+        // return the state of the filter step
         return passedFilter;
 
     }
@@ -195,7 +194,7 @@ public class FileReader {
      * @param separatedRow the parsed line
      */
     private boolean readLineOnColumn(LineSeparator separatedRow) {
-        // for the possibilty of multiple input
+        // for the possibility of multiple input
         String tempColumnName = columnName + ",";
         String[] columnNames = tempColumnName.split(",");
 
@@ -207,7 +206,7 @@ public class FileReader {
             i++;
         }
         while (passedFilter & columnNames.length - 1 > i);
-        // return the state of the filterstep
+        // return the state of the filter step
         return passedFilter;
     }
 

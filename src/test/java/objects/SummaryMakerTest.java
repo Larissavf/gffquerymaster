@@ -1,3 +1,9 @@
+/**
+ * Test on the SummaryMaker
+ * @author Larissa
+ * @version 1.0
+ * @since 16-10-2024
+ */
 package objects;
 
 import nl.bioinf.objects.LineSeparator;

@@ -25,7 +25,7 @@ public class Filter {
      * Checks if the line has the same value as been asked to filter on
      *
      * @param readLine the object made from the line from the file
-     * @param filterObject the String that has the filtercolumn and filtervalue seperated on a "="
+     * @param filterObject the String that has the filterColumn and filterValue seperated on a "="
      *
      * @return true if the line is equal to the asked value and needs to be used for the output
      */
@@ -40,15 +40,15 @@ public class Filter {
         } catch (ArrayIndexOutOfBoundsException e) {
             // Handle the case where "=" is missing or the format is invalid
             logger.fatal("Invalid format: expected 'key=value', but got: " + filterObject);
-            System.exit(1);
+            throw new UnsupportedOperationException("Invalid format: expected 'key=value', but got: " + filterObject);
         } catch (NullPointerException e) {
             // Handle the case where filterObject is null
             logger.fatal("Error: The filterObject is null.");
-            System.exit(1);
+            throw new UnsupportedOperationException("Error: The filterObject is null.");
         } catch (Exception e) {
             // Catch any other unexpected exceptions
             logger.fatal("An unexpected error occurred: " + e.getMessage());
-            System.exit(1);
+            throw new UnsupportedOperationException("An unexpected error occurred: " + e.getMessage());
         }
 
         // Possible filter values
@@ -56,7 +56,7 @@ public class Filter {
         // Check if the given column name for filter is allowed
         if (!Arrays.asList(possibleInput).contains(filterColumn)) {
                 logger.fatal("The given column name is different from the allowed options");
-                System.exit(1);
+                throw new UnsupportedOperationException("The given column name is different from the allowed options");
         }
 
         // Returns a boolean if the value of the line is the same as the filter value
@@ -72,16 +72,15 @@ public class Filter {
      * Checks if the coordinate values have at least a single nucleotide in the wanted region
      *
      * @param readLine the object made from the line from the file
-     * @param filterValue the String that has the filtercolumn and filtervalue seperated on a "="
+     * @param filterValue the String that has the filterColumn and filterValue seperated on a "="
      * @return true if the line has coordinates fitting in the asked region
      */
-    // Prio1: Filter step to determine which features are within the x to y coordinate range
     public static boolean coordinates(String filterValue, LineSeparator readLine, boolean exactMatch) {
         try {
             String[] range = filterValue.split("-");
             if (range.length != 2) {
                 logger.fatal("Invalid range format. Expected format: start-end.");
-                System.exit(1);
+                throw new UnsupportedOperationException("Invalid range format. Expected format: start-end.");
             }
 
             int start = Integer.parseInt(range[0]); // User-specified start coordinate
@@ -89,7 +88,7 @@ public class Filter {
 
             if (start > end) {
                 logger.fatal("Start coordinate cannot be greater than end coordinate.");
-                System.exit(1);
+                throw new UnsupportedOperationException("Start coordinate cannot be greater than end coordinate.");
             }
 
             // Get the feature's start and end from LineSeparator
@@ -117,7 +116,7 @@ public class Filter {
      * @param filterObject is a String array with the filter name and the filter value
      * @return a boolean if the feature has the correct value
      */
-    public static boolean attributesName(LineSeparator readLine, String filterObject, boolean exactmatch) {
+    public static boolean attributesName(LineSeparator readLine, String filterObject, boolean exactMatch) {
         String filterName= "";
         String filterValue = "";
 
@@ -128,15 +127,15 @@ public class Filter {
         } catch (ArrayIndexOutOfBoundsException e) {
             // Handle the case where "=" is missing or the format is invalid
             logger.fatal("Invalid format: expected 'key=value', but got: " + filterObject);
-            System.exit(1);
+            throw new UnsupportedOperationException("Invalid format: expected 'key=value', but got: " + filterObject);
         } catch (NullPointerException e) {
             // Handle the case where filterObject is null
             logger.fatal("Error: The filterObject is null.");
-            System.exit(1);
+            throw new UnsupportedOperationException("Error: The filterObject is null.");
         } catch (Exception e) {
             // Catch any other unexpected exceptions
             logger.fatal("An unexpected error occurred: " + e.getMessage());
-            System.exit(1);
+            throw new UnsupportedOperationException("An unexpected error occurred: " + e.getMessage());
         }
 
         Map<String, String> attributes = readLine.getAttributes();

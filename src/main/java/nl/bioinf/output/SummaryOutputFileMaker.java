@@ -16,15 +16,17 @@ import java.util.Set;
 /**
  * The different grouped data from the summary added to the StringBuilder
  */
-public class SummaryOutputfileMaker {
+public class SummaryOutputFileMaker {
     /**
      * It adds the different types of attributes present in every feature to the StringBuilder
      * @param sb StringBuilder containing the summary object
      * @param summary SummaryMaker object containing all the collected information for the summary
      */
     public static void typesOfAttributesPerFeature(StringBuilder sb, SummaryMaker summary) {
-        sb.append("\n" +
-                "Different types of attributes per feature:\n");
+        sb.append("""
+                
+                Different types of attributes per feature:
+                """);
         // get all features
         Map<String, Set<String>> attributesTypesFeatures = summary.getAttributesTypesFile();
         //add all features of the file
@@ -40,8 +42,10 @@ public class SummaryOutputfileMaker {
      * @param summary SummaryMaker object containing all the collected information for the summary
      */
     public static void averageAmountOfNucleotidesPerFeature(StringBuilder sb, SummaryMaker summary) {
-        sb.append("\n" +
-                "Average amount of nucleotides per feature:\n");
+        sb.append("""
+                
+                Average amount of nucleotides per feature:
+                """);
         // get all features
         Map<String, Integer> featuresNucAndCounts = summary.getAmountNucPerFeature();
         Map<String, Integer> featuresAndCounts = summary.getFeatureTypesFile();
@@ -66,7 +70,7 @@ public class SummaryOutputfileMaker {
         Map<String, Integer> featuresAndCounts = summary.getFeatureTypesFile();
         //add all features of the file
         for ( String featureTypeAndCount: featuresAndCounts.keySet()){
-            //determine the procent of the whole amount of features
+            //determine the percentage of the whole amount of features
             int countOfFeature = featuresAndCounts.get(featureTypeAndCount);
             float percentage = (((float) countOfFeature /totalAmountFeatures)*100);
             sb.append(featureTypeAndCount).append("   ").append(Math.round(percentage)).append("%   ").append(countOfFeature).append("\n");

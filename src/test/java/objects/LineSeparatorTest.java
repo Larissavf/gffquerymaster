@@ -1,3 +1,9 @@
+/**
+ * Test on the LineSeparator
+ * @author Cheyenne
+ * @version 1.0
+ * @since
+ */
 package objects;
 
 import nl.bioinf.objects.LineSeparator;

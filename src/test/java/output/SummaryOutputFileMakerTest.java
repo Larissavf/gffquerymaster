@@ -1,7 +1,7 @@
 package output;
 
 import nl.bioinf.objects.SummaryMaker;
-import nl.bioinf.output.SummaryOutputfileMaker;
+import nl.bioinf.output.SummaryOutputFileMaker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -43,7 +43,7 @@ public class SummaryOutputFileMakerTest {
     public void testTypesOfAttributesPerFeature(){
         StringBuilder sb = new StringBuilder("This is a testfile");
         //make the actual output
-        SummaryOutputfileMaker.typesOfAttributesPerFeature(sb, mockLineSummary);
+        SummaryOutputFileMaker.typesOfAttributesPerFeature(sb, mockLineSummary);
 
         assertEquals(sb.toString(), "This is a testfile\nDifferent types of attributes per feature:\ngene   [ID, Name]\n");
     }
@@ -53,7 +53,7 @@ public class SummaryOutputFileMakerTest {
     public void testAverageAmountOfNucleotidesPerFeature() {
         StringBuilder sb = new StringBuilder("This is a testfile");
         //make the actual output
-        SummaryOutputfileMaker.averageAmountOfNucleotidesPerFeature(sb, mockLineSummary);
+        SummaryOutputFileMaker.averageAmountOfNucleotidesPerFeature(sb, mockLineSummary);
 
         assertEquals(sb.toString(), "This is a testfile\nAverage amount of nucleotides per feature:\ngene   400 nucleotides   with a total of 400 nucleotides\n");
     }
@@ -63,7 +63,7 @@ public class SummaryOutputFileMakerTest {
     public void testTotalAmountOfFeatures() {
         StringBuilder sb = new StringBuilder("This is a testfile");
         //make the actual output
-        SummaryOutputfileMaker.totalAmountOfFeatures(sb, mockLineSummary);
+        SummaryOutputFileMaker.totalAmountOfFeatures(sb, mockLineSummary);
 
         assertEquals(sb.toString(), "This is a testfile\nIn total there are 1 features in this genome:\n\nAmount of a type feature present: \ngene   100%   1\n");
     }

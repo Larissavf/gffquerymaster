@@ -33,7 +33,7 @@ public class OutputWriter extends PathDeterminer {
         // check if there has been given a outputPath
         if (outputPath == null) {
         dataPath = createDataPath(inputPath);
-        logger.info("No path was given the default output path will be used " + dataPath.toString());
+            logger.info("No path was given the default output path will be used {}", dataPath.toString());
         } else {
             dataPath = Paths.get(outputPath);
         }
@@ -41,7 +41,7 @@ public class OutputWriter extends PathDeterminer {
     /**
      * Write the file with the determined dataPath with a lineSeparator as line
      *
-     * @param line is a LineSeparator object a exact copy of the line of the original file
+     * @param line is a LineSeparator object an exact copy of the line of the original file
      */
     public void writeOutput(LineSeparator line){
         // write to file
@@ -50,10 +50,10 @@ public class OutputWriter extends PathDeterminer {
             writer.newLine();
         } catch (NoSuchFileException e) {
             logger.error("File doesn't exist " + dataPath);
-            System.exit(1);
+            throw new UnsupportedOperationException("file doesn't exist " + dataPath);
         } catch (IOException e) {
             logger.error("Something went wrong in writing the output file", e);
-            System.exit(1);
+            throw new UnsupportedOperationException("Something went wrong in writing the output file");
         }
     }
     /**
@@ -68,10 +68,10 @@ public class OutputWriter extends PathDeterminer {
             writer.newLine();
         } catch (NoSuchFileException e) {
             logger.error("File doesn't exist " + dataPath);
-            System.exit(1);
+            throw new UnsupportedOperationException("File doesn't exist " + dataPath);
         } catch (IOException e) {
             logger.error("Something went wrong in writing the output file", e);
-            System.exit(1);
+            throw new UnsupportedOperationException("Something went wrong in writing the output file");
         }
         // it's a header
         if (!line.startsWith("##")){
@@ -91,10 +91,10 @@ public class OutputWriter extends PathDeterminer {
 
     /**
      * make the summary output file
-     * @param summary an object containing the needed information to make the summary outputfile
+     * @param summary an object containing the needed information to make the summary output file
      */
-    public void writesummary(SummaryMaker summary){
-        // stringbuilder
+    public void writeSummary(SummaryMaker summary){
+        // string builder
         StringBuilder sb = new StringBuilder();
         //intro
         sb.append("The summary of: \n");
@@ -103,13 +103,13 @@ public class OutputWriter extends PathDeterminer {
         sb.append("\nThe source types for this genome:\n").append(summary.getSourceTypesFile().toString()).append("\n");
 
         //total amount of features
-        SummaryOutputfileMaker.totalAmountOfFeatures(sb, summary);
+        SummaryOutputFileMaker.totalAmountOfFeatures(sb, summary);
 
         //average amount of nucleotides per features
-        SummaryOutputfileMaker.averageAmountOfNucleotidesPerFeature(sb, summary);
+        SummaryOutputFileMaker.averageAmountOfNucleotidesPerFeature(sb, summary);
 
         //types of attributes per feature
-        SummaryOutputfileMaker.typesOfAttributesPerFeature(sb, summary);
+        SummaryOutputFileMaker.typesOfAttributesPerFeature(sb, summary);
 
         //set file path to summary and create
         setPathToSummary();

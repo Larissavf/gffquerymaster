@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -22,6 +25,8 @@ public class FilterTest {
         when(mockLineSeparator.getFeatureType()).thenReturn("gene");
         when(mockLineSeparator.getStartIndex()).thenReturn(100);
         when(mockLineSeparator.getEndIndex()).thenReturn(200);
+        when(mockLineSeparator.getAttributes()).thenReturn(new HashMap<>(Map.of("ID", "chr1", "Name","sourceA")));
+
     }
 
 //    @Test
@@ -38,11 +43,11 @@ public class FilterTest {
         assertFalse(result, "Filter should not match a different source value");
     }
 
-//    @Test
-//    public void testColumnName_InvalidFilterFormat() {
-//        // Test filtering with an invalid format (missing '=')
-//        assertThrows(IllegalArgumentException.class, () -> Filter.columnName(mockLineSeparator, "sequenceId", exactMatch));
-//    }
+    @Test
+    public void testColumnName_InvalidFilterFormat() {
+        // Test filtering with an invalid format (missing '=')
+        assertThrows(UnsupportedOperationException.class, () -> Filter.columnName(mockLineSeparator, "sequenceId", exactMatch));
+    }
 
 //    @Test
 //    public void testColumnName_InvalidFilterColumn() {
@@ -72,16 +77,43 @@ public class FilterTest {
         assertFalse(result, "Filter should not match since the coordinates (100-200) do not overlap with (300-400)");
     }
 
-//    @Test
-//    public void testCoordinates_InvalidRangeFormat() {
-//        // Test invalid coordinate range format
-//        assertThrows(IllegalArgumentException.class, () -> Filter.coordinates("100_to_200", mockLineSeparator, false));
-//    }
+    @Test
+    public void testCoordinates_InvalidRangeFormat() {
+        // Test invalid coordinate range format
+        assertThrows(UnsupportedOperationException.class, () -> Filter.coordinates("100_to_200", mockLineSeparator, false));
+    }
 
-//    @Test
-//    public void testCoordinates_StartGreaterThanEnd() {
-//        // Test invalid range where start is greater than end
-//        assertThrows(IllegalArgumentException.class, () -> Filter.coordinates("200-100", mockLineSeparator, false));
-//    }
+    @Test
+    public void testCoordinates_StartGreaterThanEnd() {
+        // Test invalid range where start is greater than end
+        assertThrows(UnsupportedOperationException.class, () -> Filter.coordinates("200-100", mockLineSeparator, false));
+    }
+
+    @Test
+    public void testAttributesCorrect(){
+        // test attributes notation in correct way
+        Boolean result = Filter.attributesName(mockLineSeparator, "ID=chr1", exactMatch);
+        assertTrue(result, "Filter should match the exact attribute name (chr1)");
+    }
+
+    @Test
+    public void testAttributesWrongSeparatorItem() {
+        // test attributes notation with a wrong separator item
+        assertThrows(UnsupportedOperationException.class, () -> Filter.attributesName(mockLineSeparator, "Id,Chr1", false));
+    }
+
+    @Test
+    public void testAttributesNoFilterObject() {
+        // test attributes notation with no filter object
+        assertThrows(UnsupportedOperationException.class, () -> Filter.attributesName(mockLineSeparator, "Id=", false));
+    }
+
+    @Test
+    public void testAttributesCorrectNotInTheLineSeparator() {
+        // test attributes notation in correct way
+        Boolean result = Filter.attributesName(mockLineSeparator, "ID=chr2", exactMatch);
+        assertFalse(result, "Filter should match the exact attribute name (chr1)");
+    }
+
 }
 

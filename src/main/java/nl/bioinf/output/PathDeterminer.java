@@ -58,18 +58,18 @@ public class PathDeterminer {
         if(! Files.exists(dataPath)) {
             try {
                 Files.createFile(dataPath);
-                logger.info("Output file created: " + dataPath);
+                logger.info("Output file created: {}", dataPath);
             } catch (IOException e) {
                 logger.error("Something went wrong in creating the output file, check if you made the whole path");
-                System.exit(1);
+                throw new UnsupportedOperationException("Something went wrong in creating the output file");
             }
         }else{ // delete the file if it exists
             try {
                 Files.delete(dataPath);
-                logger.info("File already exist, the old gets deleted on " + dataPath);
+                logger.info("File already exist, the old gets deleted on {}", dataPath);
             } catch (IOException e) {
                 logger.error("Something went wrong in deleting the old output file");
-                System.exit(1);
+                throw new UnsupportedOperationException("Something went wrong in deleting the old output file");
             }
             createTheFile();
         }

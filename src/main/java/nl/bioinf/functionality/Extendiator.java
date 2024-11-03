@@ -58,7 +58,7 @@ public class Extendiator {
 
     /**
      * If there have been made an object containing children of the last filter passed feature
-     * combine the old features with the new features, of what a feature has passed the filter
+     * combine the old features with the new features, of a feature that has passed the filter
      * @param separatedRow LineSeparator object containing the elements of the line
      * @return List from LineSeparator objects that need to be in the output file
      * */
@@ -86,5 +86,37 @@ public class Extendiator {
         // to check if there are more children to that gene feature
         childAdded = true;
         extendedLines.clear();
+    }
+
+    /**
+     * Get the extendedLines object
+     * @return is a list of LineSeparators that all possibly need to be used in the output
+     */
+    public List<LineSeparator> getExtendedLines() {
+        return extendedLines;
+    }
+
+    /**
+     * get the children object
+     * @return  is a list of LineSeparators that all are related to the past item that had been used in the output
+     */
+    public List<LineSeparator> getChildren() {
+        return children;
+    }
+
+    /**
+     * get the regionFeature object
+     * @return LineSeparator holding the feature of the region
+     */
+    public LineSeparator getRegionFeature() {
+        return regionFeature;
+    }
+
+    /**
+     * get the childAdded
+     * @return is a boolean if the item before had been passed and possible children need to be added
+     */
+    public boolean isChildAdded() {
+        return childAdded;
     }
 }

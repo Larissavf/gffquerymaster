@@ -22,12 +22,9 @@ public class Main {
      * @param args String array containing the arguments put in by the user
      */
     public static void main(String[] args) {
-        try{
         int exitCode = new CommandLine(new ArgsProcessor()).execute(args);
-        System.exit(exitCode);
-        }catch(Exception e){
-            logger.fatal("there's been a unprepared error" + e.getMessage());
-        }
+            System.exit(exitCode);
+
     }
 
 

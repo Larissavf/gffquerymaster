@@ -74,7 +74,7 @@ public class SummaryMaker {
             amountNucPerFeature.put(feature, endIndex - startIndex + 1);
         } else {
             // add the amount to the existing
-            amountNucPerFeature.compute(feature, (k, existingAmountNucleotide) -> existingAmountNucleotide + (endIndex - startIndex + 1)) ;
+            amountNucPerFeature.compute(feature, (_, existingAmountNucleotide) -> existingAmountNucleotide + (endIndex - startIndex + 1)) ;
         }
     }
 
@@ -89,7 +89,7 @@ public class SummaryMaker {
             featureTypesFile.put(feature, 1);
         } else {
             // add 1
-            featureTypesFile.compute(feature, (k, currentValue) -> currentValue + 1);
+            featureTypesFile.compute(feature, (_, currentValue) -> currentValue + 1);
         }
     }
 

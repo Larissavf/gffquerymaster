@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -41,7 +40,7 @@ public class InputFileChecker {
         }
 
         // Check the content format of the file
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String firstLine = reader.readLine();
 
             if (firstLine != null && firstLine.startsWith("##gff-version")) {
@@ -54,15 +53,15 @@ public class InputFileChecker {
 
         } catch (FileNotFoundException e) {
             // Handle file not found error gracefully
-            logger.error("File not found: " + filePath);
+            logger.error("File not found: {}", filePath);
             return false;
         } catch (IOException e) {
             // Handle IO error (e.g., read errors)
-            logger.error("IO error while reading the file: " + filePath);
+            logger.error("IO error while reading the file: {}", filePath);
             return false;
         } catch (Exception e) {
             // Catch any other unexpected errors
-            logger.fatal("An unexpected error occurred: " + filePath + " - " + e.getMessage());
+            logger.fatal("An unexpected error occurred: {} - {}", filePath, e.getMessage());
             return false;
         }
     }
