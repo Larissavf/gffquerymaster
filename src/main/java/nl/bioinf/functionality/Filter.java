@@ -41,10 +41,6 @@ public class Filter {
             // Handle the case where "=" is missing or the format is invalid
             logger.fatal("Invalid format: expected 'key=value', but got: " + filterObject);
             throw new UnsupportedOperationException("Invalid format: expected 'key=value', but got: " + filterObject);
-        } catch (NullPointerException e) {
-            // Handle the case where filterObject is null
-            logger.fatal("Error: The filterObject is null.");
-            throw new UnsupportedOperationException("Error: The filterObject is null.");
         } catch (Exception e) {
             // Catch any other unexpected exceptions
             logger.fatal("An unexpected error occurred: " + e.getMessage());
@@ -52,7 +48,7 @@ public class Filter {
         }
 
         // Possible filter values
-        String[] possibleInput = {"sequenceID", "source", "featureType", "startAndStop"};
+        String[] possibleInput = {"sequenceId", "source", "featureType", "startAndStop"};
         // Check if the given column name for filter is allowed
         if (!Arrays.asList(possibleInput).contains(filterColumn)) {
                 logger.fatal("The given column name is different from the allowed options");
@@ -103,7 +99,7 @@ public class Filter {
                 return featureStart <= end && featureEnd >= start;
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Coordinates must be valid integers.", e);
+            throw new UnsupportedOperationException("Coordinates must be valid integers.", e);
         }
     }
 
@@ -128,10 +124,6 @@ public class Filter {
             // Handle the case where "=" is missing or the format is invalid
             logger.fatal("Invalid format: expected 'key=value', but got: " + filterObject);
             throw new UnsupportedOperationException("Invalid format: expected 'key=value', but got: " + filterObject);
-        } catch (NullPointerException e) {
-            // Handle the case where filterObject is null
-            logger.fatal("Error: The filterObject is null.");
-            throw new UnsupportedOperationException("Error: The filterObject is null.");
         } catch (Exception e) {
             // Catch any other unexpected exceptions
             logger.fatal("An unexpected error occurred: " + e.getMessage());

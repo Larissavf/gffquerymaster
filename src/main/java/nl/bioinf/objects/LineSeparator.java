@@ -71,6 +71,7 @@ public class LineSeparator {
        }
     }
 
+
     /**
      * Get the sequence id
      * @return String containing the sequenceId

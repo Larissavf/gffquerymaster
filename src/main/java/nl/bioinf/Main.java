@@ -15,7 +15,7 @@ import picocli.CommandLine;
 /**
  * Main
  */
-public class Main {
+public class Main extends ArgsProcessor {
     private static final Logger logger = LogManager.getLogger(Main.class.getName());
     /**
      * the start of it all

@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import javax.sound.sampled.Line;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,20 +45,40 @@ public class ExtendiatorTest {
     }
 
     @Test
-    public void testCheckChildren(){
-        List<LineSeparator> expectedList = List.of(mockLineSeparatorRNA, mockLineSeparatorRNA);
-
+    public void testPossibleChild(){
         // something has been passed to the output so children need to be checked
         testExtendiator.possibleChild();
         assertTrue(testExtendiator.isChildAdded());
+
+    }
+
+    @Test
+    public void testPossibleChildAfterChecked(){
+        // add the correct to output and check
+        testExtendiator.checkChildren(mockLineSeparatorRNA);
+        testExtendiator.possibleChild();
+
         // add another one to the list
-        testExtendiator.wholeObject(mockLineSeparatorRNA);
-        // get the complete item set and compare
-        assertEquals(expectedList,testExtendiator.checkChildren(mockLineSeparatorRNA));
-        // if the children are accurate
-        assertEquals(List.of(mockLineSeparatorRNA,mockLineSeparatorRNA), testExtendiator.getExtendedLines());
         testExtendiator.wholeObject(mockLineSeparatorGene);
+        // gene object so no children
         assertFalse(testExtendiator.isChildAdded());
+    }
+
+    @Test
+    public void testGetExtendedLines(){
+        // add the correct to output and check
+        testExtendiator.checkChildren(mockLineSeparatorRNA);
+        testExtendiator.possibleChild();
+
+        // add another one to the list
+        testExtendiator.wholeObject(mockLineSeparatorGene);
+
+        // get the complete item set
+        testExtendiator.checkChildren(mockLineSeparatorRNA);
+        testExtendiator.possibleChild();
+
+        // if the children are accurate
+        assertEquals(List.of(), testExtendiator.getExtendedLines());
     }
 
 }

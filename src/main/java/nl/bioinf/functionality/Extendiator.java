@@ -41,8 +41,9 @@ public class Extendiator {
                 if(regionFeature != null){
                     children = extendedLines;
                     children.add(regionFeature);
-                }
+                } else {
                 children = extendedLines;
+                }
             }
             //reset for the new gene feature
             extendedLines.clear();

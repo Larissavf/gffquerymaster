@@ -143,22 +143,22 @@ public class FileReader {
                     if(readLineOnAttribute(separatedRow)){passedFilter = true;}
                 } else if (summary){// just a summary needed
                     summaryWriter.makeSummary(separatedRow);
-                    product.deleteFileOutput();
                 }
                 // checking if the option Inheritance has been given and the extended version is needed
                 if (passedFilter & extended){//write part one to the output file
-                    inheritance.possibleChild();
                     product.writeOutput(inheritance.checkChildren(separatedRow));
+                    inheritance.possibleChild();
                 } else if (extended){ // safe the possible more children
                 inheritance.wholeObject(separatedRow);
                 } else if (passedFilter){// just write the output out to the output file
                     product.writeOutput(separatedRow);
-                } else {
+                } else if (!summary){
                     product.writeOutput(separatedRow);
                 }
             }
             // write the summary object
             if(summary){
+                product.deleteFileOutput();
                 product.writeSummary(summaryWriter);
             }
             System.out.println("Done");
