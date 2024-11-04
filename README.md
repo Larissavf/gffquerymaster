@@ -4,12 +4,12 @@ A commandline tool for linux and windows filtering a gff file version 3.
 You can extract the correct lines that include certain information you are looking
 for in the columns and/or in the attributes. The output will be a ggf file version 3.  
 
-Extra functionality:
+Extra functionality:  
 There's the possibility to take the heritage in consideration present in a gff file.
 This will take the parents and the children who are linked in the attributes. Together 
 to the output file if one of them is correct to the wanted information.
 
-You can also choose to make a summary of the gff file.
+You can also choose to make a summary of the gff file.  
 This will contain:
 - The different source types for this genome.
 - The total features in this genome.
@@ -20,8 +20,8 @@ This will contain:
 This tool makes use of the packages [picocli](https://picocli.info/) and [log4j](https://logging.apache.org/log4j/2.x/index.html).
 
 #### Purpose
-For filtering of a version 3 gff file in the columns or attributes. Extracting the wanted data.  
-See for the necessary [format](https://www.ensembl.org/info/website/upload/gff.html?redirect=no).
+For filtering of a version 3 gff file in the columns or attributes.   
+Extracting the wanted data. See for the necessary gff version 3 [format](https://www.ensembl.org/info/website/upload/gff.html?redirect=no).
 
 ### Getting started
 Clone the git repo.
