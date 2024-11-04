@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="edits to the ArgsProcessor and readme a start">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" afterDir="false" />
-    </list>
+    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="Added tests for Filter, InputFileChecker, LineSeparator and FileReader" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,21 +88,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.gffquerymaster [build].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Larissa&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.gffquerymaster [build].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Cheyenne",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster" />
