@@ -11,9 +11,7 @@ package nl.bioinf.objects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -63,7 +61,7 @@ public class LineSeparator {
 
     private void makeFeatureInformation(String featureStuff) {
         // split the String on ; and =
-        String[] featureSplit = split(featureStuff,';','=');
+        String[] featureSplit = featureStuff.split("[;=]");
         // put the first item as key and the second as value
        try{ for (int i = 0; i < featureSplit.length; i+=2) {
            attributes.put(featureSplit[i], featureSplit[i + 1]);
@@ -72,45 +70,6 @@ public class LineSeparator {
            logger.fatal("The  file misses 1 or multiple columns, check the tabs");
        }
     }
-
-    /**
-     * Alternative for the method Java.lang.String.split, this is a logic based method made by chatGPT.
-     * produced to test a better version for method Java.lang.String.split.
-     * @param input String containing the line that needs to be split
-     * @param delimiter1 char with the first split object
-     * @param delimiter2 char with the second split object
-     * @return string array containing all the elements
-     */
-    public static String[] split(String input, char delimiter1, char delimiter2) {
-        // Handle null or empty input
-        if (input == null || input.isEmpty()) {
-            return new String[0];
-        }
-
-        char[] chars = input.toCharArray();
-        StringBuilder currentToken = new StringBuilder();
-        List<String> resultList = new ArrayList<>();
-
-        for (char c : chars) {
-            if (c == delimiter1 || c == delimiter2) {
-                if (currentToken.length() > 0) {
-                    resultList.add(currentToken.toString());
-                    currentToken.setLength(0); // Reset the StringBuilder
-                }
-            } else {
-                currentToken.append(c);
-            }
-        }
-
-        // Add the last token if it exists
-        if (currentToken.length() > 0) {
-            resultList.add(currentToken.toString());
-        }
-
-        // Convert List to String[]
-        return resultList.toArray(new String[0]);
-    }
-
 
 
     /**
