@@ -17,7 +17,7 @@ This will contain:
 - The average amount of nucleotides present per feature.
 - The different types of attributes present per feature.
 
-This tool makes use of the packages [picocli](https://picocli.info/) and [log4j](https://logging.apache.org/log4j/2.x/index.html).
+This tool makes use of the packages [picocli](https://picocli.info/) version 4.6.3 and [log4j](https://logging.apache.org/log4j/2.x/index.html) version 2.24.1.
 
 #### Purpose
 For filtering of a version 3 gff file in the columns or attributes.   
