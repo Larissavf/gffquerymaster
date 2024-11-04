@@ -29,12 +29,12 @@ public class FilterTest {
 
     }
 
-//    @Test
-//    public void testColumnName_ValidFilter_MatchesSequenceId() {
-//        // Test filtering by sequenceId with a matching value
-//        boolean result = Filter.columnName(mockLineSeparator, "sequenceId=chr1", exactMatch);
-//        assertTrue(result, "Filter should match the sequenceId 'chr1'");
-//    }
+    @Test
+    public void testColumnName_ValidFilter_MatchesSequenceId() {
+        // Test filtering by sequenceId with a matching value
+        boolean result = Filter.columnName(mockLineSeparator, "sequenceId=chr1", exactMatch);
+        assertTrue(result, "Filter should match the sequenceId 'chr1'");
+    }
 
     @Test
     public void testColumnName_ValidFilter_NoMatchForSource() {
@@ -49,12 +49,25 @@ public class FilterTest {
         assertThrows(UnsupportedOperationException.class, () -> Filter.columnName(mockLineSeparator, "sequenceId", exactMatch));
     }
 
-//    @Test
-//    public void testColumnName_InvalidFilterColumn() {
-//        // Test filtering with an invalid column name
-//        boolean result = Filter.columnName(mockLineSeparator, "invalidColumn=value", exactMatch);
-//        assertFalse(result, "Filter should return false for an unsupported column name");
-//    }
+    @Test
+    public void testColumnName_InvalidFilterColumn() {
+        // Test filtering with an invalid column name
+        assertThrows(UnsupportedOperationException.class, () -> Filter.columnName(mockLineSeparator, "invalidColumn=value", exactMatch));
+    }
+
+    @Test
+    public void testColumnName_ValidFilter_NoMatchForFeatureType() {
+        // Test filtering by featureType with a non-matching value
+        boolean result = Filter.columnName(mockLineSeparator, "featureType=nonMatchingFeatureType", exactMatch);
+        assertFalse(result, "Filter should not match a different source value");
+    }
+
+    @Test
+    public void testColumnName_ValidFilter_MatchForStartAndStop() {
+        // Test filtering by startAndStop with a non-matching value
+        boolean result = Filter.columnName(mockLineSeparator, "startAndStop=400-600", exactMatch);
+        assertFalse(result, "Filter should not match a different source value");
+    }
 
     @Test
     public void testCoordinates_ExactMatch() {
@@ -90,6 +103,12 @@ public class FilterTest {
     }
 
     @Test
+    public void testCoordinatesNonumbers(){
+        // test where it are letters
+        assertThrows(UnsupportedOperationException.class, () -> Filter.coordinates("2oo-1oo", mockLineSeparator, false));
+    }
+
+    @Test
     public void testAttributesCorrect(){
         // test attributes notation in correct way
         Boolean result = Filter.attributesName(mockLineSeparator, "ID=chr1", exactMatch);
@@ -115,5 +134,15 @@ public class FilterTest {
         assertFalse(result, "Filter should match the exact attribute name (chr1)");
     }
 
+    @Test
+    public void testAttributesNoFilterObjectToSplit() {
+        // test attributes notation with no filter object to split on
+        assertThrows(UnsupportedOperationException.class, () -> Filter.attributesName(mockLineSeparator, "Id", false));
+    }
+
+    @Test
+    public void testAttributesFalseOutput() {
+        assertFalse(Filter.attributesName(mockLineSeparator, "=chr2", exactMatch));
+    }
 }
 
