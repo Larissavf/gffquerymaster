@@ -32,7 +32,8 @@ git clone https://github.com/Larissavf/gffquerymaster.git
 You can grab a gff version 3 file from [NCBI](https://www.ncbi.nlm.nih.gov/datasets/)
 
 ### How to work with it
-Run the following on the commandline when the repo is cloned:
+Run the following on the commandline when the repo is cloned:  
+Use eiterway gradle, or open the project with Intelij IDEA wich has gradle build in it and then run the folllowing in Intelij commandline.
 
 ```
 ./gradlew build
