@@ -14,23 +14,25 @@ import java.io.FileNotFoundException;
 
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-//todo prio1 jog4j
-
 // file validator
 
+/**
+ * This class gets used for checking the file
+ */
 public class InputFileChecker {
+    private static final Logger logger = LogManager.getLogger(InputFileChecker.class.getName());
+
     /**
      * Checks if the provided file is a GFF file based on its extension and format.
      *
      * @param filePath The path to the file to be checked.
      * @return true if the file is a GFF file, false otherwise.
      */
-    private static final Logger logger = LogManager.getLogger(InputFileChecker.class.getName());
-    public boolean isValidGFFFile(String filePath) {
+    public static boolean isValidGFFFile(String filePath) {
+
         // Check file extension
         if (!filePath.endsWith(".gff")) {
             logger.warn("File is not a .gff file.");
@@ -38,7 +40,7 @@ public class InputFileChecker {
         }
 
         // Check the content format of the file
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String firstLine = reader.readLine();
 
             if (firstLine != null && firstLine.startsWith("##gff-version")) {
@@ -51,15 +53,15 @@ public class InputFileChecker {
 
         } catch (FileNotFoundException e) {
             // Handle file not found error gracefully
-            logger.error("File not found: " + filePath);
+            logger.error("File not found: {}", filePath);
             return false;
         } catch (IOException e) {
             // Handle IO error (e.g., read errors)
-            logger.error("IO error while reading the file: " + filePath);
+            logger.error("IO error while reading the file: {}", filePath);
             return false;
         } catch (Exception e) {
             // Catch any other unexpected errors
-            logger.fatal("An unexpected error occurred: " + filePath + " - " + e.getMessage());
+            logger.fatal("An unexpected error occurred: {} - {}", filePath, e.getMessage());
             return false;
         }
     }

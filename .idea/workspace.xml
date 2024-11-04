@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="edits to the ArgsProcessor and readme a start">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/ArgsProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/FileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/InputFileChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/bioinf/LineSeparator.java" afterDir="false" />
+    <list default="true" id="82639884-544e-4a66-883d-02dc233e4062" name="Changes" comment="some of cheyennes test didn't work eventually with the current version of the app, and i have made test for the SummaryOutputfileMaker and the summerymaker">
+      <change afterPath="$PROJECT_DIR$/src/test/java/functionality/ExtendiatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/mainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +42,18 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="gffquerymaster" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="gffquerymaster" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -79,13 +86,16 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Cheyenne" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/nl/bioinf/output/PathDeterminer.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -96,28 +106,79 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.gffquerymaster [build].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Larissa&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.FileReaderTest.executor": "Run",
+    "Gradle.OutputWriterTest.testOutputWriter.executor": "Run",
+    "Gradle.SummaryMakerTest.executor": "Run",
+    "Gradle.SummaryOutputFileMakerTest.executor": "Run",
+    "Gradle.gffquerymaster [:nl.bioinf.TestClass.main()].executor": "Run",
+    "Gradle.gffquerymaster [assemble].executor": "Run",
+    "Gradle.gffquerymaster [buildDependents].executor": "Run",
+    "Gradle.gffquerymaster [buildNeeded].executor": "Run",
+    "Gradle.gffquerymaster [build].executor": "Run",
+    "Gradle.gffquerymaster [check].executor": "Run",
+    "Gradle.gffquerymaster [clean].executor": "Run",
+    "Gradle.gffquerymaster [init].executor": "Run",
+    "Gradle.gffquerymaster [jar].executor": "Run",
+    "Gradle.gffquerymaster [javadoc].executor": "Run",
+    "Gradle.gffquerymaster [testClasses].executor": "Run",
+    "Gradle.gffquerymaster [test].executor": "Coverage",
+    "Gradle.gffquerymaster [updateDaemonJvm].executor": "Run",
+    "Gradle.gffquerymaster [wrapper].executor": "Run",
+    "Gradle.mainTest.executor": "Run",
+    "Gradle.mainTest.testMain.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Larissa",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Laris/Documents/bioinf_local/year3/gffquerymaster/src/main/java/nl/bioinf/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster\src\test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster\src\main\java\nl\bioinf" />
+      <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster\src\test\java\functionality" />
+      <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster\src\test\java\objects" />
+      <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster\src\test\java" />
       <recent name="C:\Users\Laris\Documents\bioinf_local\year3\gffquerymaster" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="gffquerymaster [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.mainTest">
+    <configuration name="SummaryMakerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;objects.SummaryMakerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="gffquerymaster [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -128,7 +189,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="check" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -139,9 +200,83 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="gffquerymaster [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="mainTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;mainTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="mainTest.testMain" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;mainTest.testMain&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.gffquerymaster [build]" />
+        <item itemvalue="Gradle.mainTest" />
+        <item itemvalue="Gradle.mainTest.testMain" />
+        <item itemvalue="Gradle.gffquerymaster [test]" />
+        <item itemvalue="Gradle.gffquerymaster [check]" />
+        <item itemvalue="Gradle.SummaryMakerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +300,10 @@
       <workItem from="1727679869679" duration="1070000" />
       <workItem from="1727682637500" duration="6198000" />
       <workItem from="1727774056381" duration="9242000" />
-      <workItem from="1728649690246" duration="23112000" />
+      <workItem from="1728649690246" duration="72757000" />
+      <workItem from="1729252267624" duration="14691000" />
+      <workItem from="1729371212726" duration="25268000" />
+      <workItem from="1730047093647" duration="35104000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -215,7 +353,71 @@
       <option name="project" value="LOCAL" />
       <updated>1728895688126</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added the OutputWriter fixed all the errors and is now working">
+      <option name="closed" value="true" />
+      <created>1729005727111</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1729005727111</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added the jar">
+      <option name="closed" value="true" />
+      <created>1729007096701</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729007096701</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added the functions attribute and inheritance">
+      <option name="closed" value="true" />
+      <created>1729107980926</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1729107980926</updated>
+    </task>
+    <task id="LOCAL-00010" summary="changed the readme with the updated options">
+      <option name="closed" value="true" />
+      <created>1729109575316</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729109575316</updated>
+    </task>
+    <task id="LOCAL-00011" summary="massive changes to the FileReader and changed the whole way of it working, to now a fully working product, with inheratance and summary added aswell">
+      <option name="closed" value="true" />
+      <created>1729701384781</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1729701384781</updated>
+    </task>
+    <task id="LOCAL-00012" summary="summary complete and extra functionality exact match">
+      <option name="closed" value="true" />
+      <created>1730133738996</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730133738996</updated>
+    </task>
+    <task id="LOCAL-00013" summary="attempt at making cheyennes test work with the most recent working app version. so i can make tests aswell">
+      <option name="closed" value="true" />
+      <created>1730472995534</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730472995534</updated>
+    </task>
+    <task id="LOCAL-00014" summary="some of cheyennes test didn't work eventually with the current version of the app, and i have made test for the SummaryOutputfileMaker and the summerymaker">
+      <option name="closed" value="true" />
+      <created>1730488664717</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1730488664717</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +440,17 @@
     <MESSAGE value="added all todos to make a simple version working" />
     <MESSAGE value="added the first simple filter step" />
     <MESSAGE value="edits to the ArgsProcessor and readme a start" />
-    <option name="LAST_COMMIT_MESSAGE" value="edits to the ArgsProcessor and readme a start" />
+    <MESSAGE value="added the OutputWriter fixed all the errors and is now working" />
+    <MESSAGE value="added the jar" />
+    <MESSAGE value="added the functions attribute and inheritance" />
+    <MESSAGE value="changed the readme with the updated options" />
+    <MESSAGE value="massive changes to the FileReader and changed the whole way of it working, to now a fully working product, with inheratance and summary added aswell" />
+    <MESSAGE value="summary complete and extra functionality exact match" />
+    <MESSAGE value="attempt at making cheyennes test work with the most recent working app version. so i can make tests aswell" />
+    <MESSAGE value="some of cheyennes test didn't work eventually with the current version of the app, and i have made test for the SummaryOutputfileMaker and the summerymaker" />
+    <option name="LAST_COMMIT_MESSAGE" value="some of cheyennes test didn't work eventually with the current version of the app, and i have made test for the SummaryOutputfileMaker and the summerymaker" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/gffquerymaster$gffquerymaster__test_.ic" NAME="gffquerymaster [test] Coverage Results" MODIFIED="1730488304103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
