@@ -1,47 +1,46 @@
 # GffQueryMaster
 ### Introduction
-A commandline tool for linux and windows filtering a gff file version 3.
-You can extract the correct lines that include certain information you are looking
-for in the columns and/or in the attributes. The output will be a ggf file version 3.  
+**GffQueryMaster** is a command-line tool for filtering GFF (General Feature Format) version 3 files on both Linux and Windows. It allows users to extract lines containing specific information from the columns and/or attributes of a GFF file, with the output also in GFF version 3 format.
 
-Extra functionality:  
-There's the possibility to take the heritage in consideration present in a gff file.
-This will take the parents and the children who are linked in the attributes. Together 
-to the output file if one of them is correct to the wanted information.
+## Features  
+- Extract lines based on specific information in columns and/or attributes.
+- Consider the heritage present in a GFF file, taking into account parents and children linked in the attributes.
+- Generate a summary of the GFF file, including:
+  - Different source types for the genome.
+  - Total features in the genome.
+  - Count of each feature present.
+  - Average number of nucleotides per feature.
+  - Different types of attributes present per feature.
 
-You can also choose to make a summary of the gff file.  
-This will contain:
-- The different source types for this genome.
-- The total features in this genome.
-- The amount of every feature present.
-- The average amount of nucleotides present per feature.
-- The different types of attributes present per feature.
-
-This tool makes use of the packages [picocli](https://picocli.info/) and [log4j](https://logging.apache.org/log4j/2.x/index.html).
+This tool makes use of the packages [picocli](https://picocli.info/) version 4.6.3 and [log4j](https://logging.apache.org/log4j/2.x/index.html) version 2.24.1.
+In [Java version 22.0.2](https://www.oracle.com/java/technologies/javase/jdk22-archive-downloads.html)
 
 #### Purpose
 For filtering of a version 3 gff file in the columns or attributes.   
 Extracting the wanted data. See for the necessary gff version 3 [format](https://www.ensembl.org/info/website/upload/gff.html?redirect=no).
 
+## Purpose
+The purpose of this tool is to filter a GFF version 3 file by extracting lines that contain specific information in the columns or attributes, allowing users to obtain the desired data based on their filtering criteria.
+
 ### Getting started
-Clone the git repo.
+Before you begin, ensure you have Git installed on your machine. If you haven't installed it yet, you can download it from [Git](https://git-scm.com/).
 
+1. Clone the Git repository:
+```bash
+   git clone https://github.com/Larissavf/gffquerymaster.git
 ```
-git clone https://github.com/Larissavf/gffquerymaster.git
-```
-You can grab a gff version 3 file from [NCBI](https://www.ncbi.nlm.nih.gov/datasets/)
+2. Obtain a GFF version 3 file from [NCBI](https://www.ncbi.nlm.nih.gov/datasets/)
 
-### How to work with it
-Run the following on the commandline when the repo is cloned:
+### How to Work with It
+1. After cloning the repository, run the following command:
+- Use either Gradle or open the project with IntelliJ IDEA (which has Gradle built-in), and then run the following command in the IntelliJ command line:
 
 ```
 ./gradlew build
 java -jar ./build/libs/gffquerymaster-1.0-SNAPSHOT.jar -i <your/path/to/the/file>
 ```
-##### Possible options
-The possible options for the tool work as the following:  
-You'll need to give the key and the wanted value that is equal to the value in your file.
-You can filter on multiple values
+#### Possible options
+The tool provides the following options:
 
     -i, -input          location of the input file
     -o, --output        location of the output file, 
@@ -58,14 +57,11 @@ You can filter on multiple values
                         succeeded filter step.
     -s, --summary       For the summary
 
-The attribute depends on the file itself cause attribute names can change. You can check this
-using the summary option.
+### Notes
 
-The Inheritance is a flag. when provided if a feature item contains the wanted 
-filter value. All the other children and the parent will be written to the output.
-
-When there isn't given any output path, a general path will be created.
-If the given output path already has the existing file, it will be deleted and rewritten.
+- The attribute names depend on the file itself, as they can change. You can check the attribute names by using the summary option.
+- The Inheritance option is a flag. When provided, if a feature item contains the desired filter value, all other children and the parent will be written to the output file.
+- If no output path is specified, a general path will be created. If the given output path already has an existing file, it will be deleted and overwritten.
 
 ### Project structure
 
