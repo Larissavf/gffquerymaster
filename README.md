@@ -67,6 +67,41 @@ The tool provides the following options:
 
 It's a standard gradle structure, see [gradle](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html) for the rules.
 
+### For developers
+
+If you're interested in contributing to this project or running it locally, here’s how you can get started.
+
+#### Prerequisites
+- Java 22.0.2 (or equivalent to) 
+- Install Gradle (Intelij IDEA recommended)
+- Clone this repository
+
+#### Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Larissavf/gffquerymaster
+   ```
+2. Open the project:
+   With the use of Intelij IDEA this can be very easy.
+
+  
+#### Contributing
+We welcome contributions! Please follow these guidelines:
+
+Fork the repository and create a new branch (git checkout -b feature-branch).
+Make your changes.
+Run tests before submitting a pull request.
+
+##### Possibilities
+There are some open possibilities still present in this project.
+
+- In the **Filter.java** file is an unused option.    
+The value **ExactMatch**, hasn't been used yet in the methods _columnName_ and _attributesName_.
+And can be used to make a difference in comparing the filter value to be fully the same or partly.
+- Possible information missing in the summary.
+
 ### FAQ
 For extra help you can contact us:  
 
