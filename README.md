@@ -55,6 +55,7 @@ The tool provides the following options:
                         To accept multiple atribute values separate it with a comma like column.
     -I, --inheritance   If you want the parent with the children of the 
                         succeeded filter step.
+    -E, --exact         The filter value is exactly the same as the value
     -s, --summary       For the summary
 
 ### Notes
