@@ -131,10 +131,10 @@ public class FileReader {
                             readLineOnAttribute(separatedRow)) {
                         passedFilter = true;
                     }
-                }else if(column & summary) {//if a summary needed, and the column filters have been set
+                }else if(column && summary) {//if a summary needed, and the column filters have been set
                     summaryWriter.makeSummary(separatedRow);
                     if(readLineOnColumn(separatedRow)){passedFilter = true;}
-                }else if (attribute & summary) {//if a summary needed, and attribute filters have been set
+                }else if (attribute && summary) {//if a summary needed, and attribute filters have been set
                     summaryWriter.makeSummary(separatedRow);
                     if(readLineOnAttribute(separatedRow)){passedFilter = true;}
                 }else if (column){// just the column filters set
@@ -152,7 +152,7 @@ public class FileReader {
                 inheritance.wholeObject(separatedRow);
                 } else if (passedFilter){// just write the output out to the output file
                     product.writeOutput(separatedRow);
-                } else if (!summary){
+                } else if (!summary && !column && !attribute) {
                     product.writeOutput(separatedRow);
                 }
             }

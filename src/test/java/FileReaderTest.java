@@ -43,6 +43,13 @@ public class FileReaderTest {
         assertTrue(lines.get(1).contains("GeneA"));
         assertTrue(lines.get(2).contains("GeneB"));
     }
+    @Test
+    public void testParseGFFFile_WrongFiltering(){
+        // Run parseGFFFile with a filter on the Name column for "GeneA"
+        fileReader.setColumn("wrong=gene");
+
+        assertThrows(UnsupportedOperationException.class, () -> fileReader.parseGFFFile(TEST_INPUT_FILE));
+    }
 //
 //            @Test
 //            public void testParseGFFFile_WithFiltering() {

@@ -55,17 +55,53 @@ The tool provides the following options:
                         To accept multiple atribute values separate it with a comma like column.
     -I, --inheritance   If you want the parent with the children of the 
                         succeeded filter step.
+    -E, --exact         The filter value is exactly the same as the value
     -s, --summary       For the summary
 
 ### Notes
 
 - The attribute names depend on the file itself, as they can change. You can check the attribute names by using the summary option.
-- The Inheritance option is a flag. When provided, if a feature item contains the desired filter value, all other children and the parent will be written to the output file.
+- The inheritance and exact option is a flag. When provided, if a feature item contains the desired filter value, all other children and the parent will be written to the output file.
 - If no output path is specified, a general path will be created. If the given output path already has an existing file, it will be deleted and overwritten.
 
 ### Project structure
 
 It's a standard gradle structure, see [gradle](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html) for the rules.
+
+### For developers
+
+If you're interested in contributing to this project or running it locally, here’s how you can get started.
+
+#### Prerequisites
+- Java 22.0.2 (or equivalent to) 
+- Install Gradle (Intelij IDEA recommended)
+- Clone this repository
+
+#### Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Larissavf/gffquerymaster
+   ```
+2. Open the project:
+   With the use of Intelij IDEA this can be very easy.
+
+  
+#### Contributing
+We welcome contributions! Please follow these guidelines:
+
+Fork the repository and create a new branch (git checkout -b feature-branch).
+Make your changes.
+Run tests before submitting a pull request.
+
+##### Possibilities
+There are some open possibilities still present in this project.
+
+- In the **Filter.java** file is an unused option.    
+The value **ExactMatch**, hasn't been used yet in the methods _columnName_ and _attributesName_.
+And can be used to make a difference in comparing the filter value to be fully the same or partly.
+- Possible information missing in the summary.
 
 ### FAQ
 For extra help you can contact us:  
