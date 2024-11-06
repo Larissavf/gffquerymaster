@@ -61,7 +61,7 @@ The tool provides the following options:
 ### Notes
 
 - The attribute names depend on the file itself, as they can change. You can check the attribute names by using the summary option.
-- The Inheritance option is a flag. When provided, if a feature item contains the desired filter value, all other children and the parent will be written to the output file.
+- The inheritance and exact option is a flag. When provided, if a feature item contains the desired filter value, all other children and the parent will be written to the output file.
 - If no output path is specified, a general path will be created. If the given output path already has an existing file, it will be deleted and overwritten.
 
 ### Project structure
